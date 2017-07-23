@@ -1,0 +1,13 @@
+md-sidenav-container {
+    background-color: #fafafa;
+}
+
+md-sidenav {
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+    width: 250px;
+}
+
+.nav-button {
+    margin-right: 16px;
+}
