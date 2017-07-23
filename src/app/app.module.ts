@@ -7,15 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
-import { 
-  MdSidenavModule, 
-  MdToolbarModule, 
-  MdIconModule,
-  MdButtonModule } from '@angular/material';
-
 import { environment } from '../environments/environment';
 
-import { CoreModule }       from './core/core.module';
+import { CoreModule }  from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
@@ -29,12 +24,8 @@ import { AppComponent } from './app.component';
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule.forRoot(),
-    MdSidenavModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdIconModule
+    SharedModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
