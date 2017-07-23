@@ -15,6 +15,8 @@ import {
 
 import { environment } from '../environments/environment';
 
+import { CoreModule }       from './core/core.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -26,6 +28,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
+    CoreModule.forRoot(),
     MdSidenavModule,
     MdToolbarModule,
     MdButtonModule,

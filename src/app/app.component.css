@@ -11,3 +11,7 @@ md-sidenav {
 .nav-button {
     margin-right: 16px;
 }
+
+.main {
+    padding: 24px;
+}

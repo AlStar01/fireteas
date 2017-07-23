@@ -1,5 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 
+import { 
+  MdSidenavModule, 
+  MdToolbarModule, 
+  MdIconModule,
+  MdButtonModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -8,6 +14,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [MdToolbarModule]
     }).compileComponents();
   }));
 
