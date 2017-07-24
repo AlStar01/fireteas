@@ -1,20 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
-
-import { 
-  MdSidenavModule, 
-  MdToolbarModule, 
-  MdIconModule,
-  MdButtonModule } from '@angular/material';
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 import { AppComponent } from './app.component';
+
+class RouterStub { }
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [MdToolbarModule]
+      declarations: [AppComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
