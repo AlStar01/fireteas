@@ -15,8 +15,9 @@
       </button>
       <h1>{{title}}</h1>
       <span class="auto-spacer"></span>
-      <button type="button" md-button (click)="login()" *ngIf="!(authService.user | async)">LOGIN</button>
-      <button type="button" md-button (click)="logout()" *ngIf="(authService.user | async)">LOGOUT</button>
+      <button *ngIf="!(authService.user | async)" type="button" md-button (click)="login()">LOGIN</button>
+      <button *ngIf="(authService.user | async)" type="button" md-button (click)="logout()">LOGOUT</button>
+      <img class="user-pic" *ngIf="(authService.user | async)?.photoURL" [src]="(authService.user | async)?.photoURL" />
     </md-toolbar>
     <main>
       <router-outlet></router-outlet>
