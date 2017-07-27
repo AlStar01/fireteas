@@ -9,6 +9,8 @@ import 'hammerjs';
 
 import { environment } from '../environments/environment';
 
+import './rxjs-extensions';
+
 import { CoreModule }  from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 

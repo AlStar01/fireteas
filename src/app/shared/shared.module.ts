@@ -5,20 +5,23 @@ import {
   MdSidenavModule, 
   MdToolbarModule, 
   MdIconModule,
-  MdButtonModule } from '@angular/material';
+  MdButtonModule,
+  MdListModule } from '@angular/material';
 
 @NgModule({
   imports: [
     MdSidenavModule, 
     MdToolbarModule, 
     MdIconModule,
-    MdButtonModule
+    MdButtonModule,
+    MdListModule
   ],
   exports: [
     MdSidenavModule, 
     MdToolbarModule, 
     MdIconModule,
-    MdButtonModule
+    MdButtonModule,
+    MdListModule
   ]
 })
 export class SharedModule { }

@@ -9,10 +9,17 @@ md-sidenav {
     width: 250px;
 }
 
+.mat-list .mat-list-item,
+.mat-nav-list .mat-list-item,
+.mat-list .mat-list-item .mat-list-item-content,
+.mat-nav-list .mat-list-item .mat-list-item-content {
+    color: rgba(0, 0, 0, 0.87);
+}
+
 .nav-button {
     margin-right: 16px;
 }
 
-.main {
+main {
     padding: 24px;
 }
