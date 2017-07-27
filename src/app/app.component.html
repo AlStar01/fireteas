@@ -1,4 +1,4 @@
-<md-sidenav-container class="container" fxFlexFill>
+<md-sidenav-container class="container mat-typography" fxFlexFill>
   <md-sidenav #sidenav class="sidenav">
     <nav>
       <md-nav-list>
@@ -14,8 +14,11 @@
         <md-icon>menu</md-icon>
       </button>
       <h1>{{title}}</h1>
+      <span class="auto-spacer"></span>
+      <button type="button" md-button (click)="login()" *ngIf="!(authService.user | async)">LOGIN</button>
+      <button type="button" md-button (click)="logout()" *ngIf="(authService.user | async)">LOGOUT</button>
     </md-toolbar>
-    <main class="mat-typography">
+    <main>
       <router-outlet></router-outlet>
     </main>
   </div>

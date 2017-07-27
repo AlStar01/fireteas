@@ -4,11 +4,11 @@ import {
 
 import { CommonModule }      from '@angular/common';
 
+import { AuthService } from "./auth/auth.service";
+
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  imports: [CommonModule],
+  providers: [AuthService]
 })
 export class CoreModule {
   constructor (@Optional() @SkipSelf() parentModule: CoreModule) {
