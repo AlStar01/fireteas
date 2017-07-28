@@ -1,0 +1,14 @@
+/* Menu */
+
+.mat-menu-content {
+  background: #fff;
+}
+
+.mat-menu-item {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-menu-item:focus:not([disabled]),
+.mat-menu-item:hover:not([disabled]) {
+  background: rgba(0,0,0,.04);
+}

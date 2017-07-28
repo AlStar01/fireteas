@@ -8,7 +8,8 @@ import {
   MdToolbarModule,
   MdIconModule,
   MdButtonModule,
-  MdListModule } from '@angular/material';
+  MdListModule,
+  MdMenuModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,
-    MdListModule
+    MdListModule,
+    MdMenuModule
   ],
   exports: [
     FlexLayoutModule,
@@ -25,7 +27,8 @@ import {
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,
-    MdListModule
+    MdListModule,
+    MdMenuModule
   ]
 })
 export class SharedModule { }
