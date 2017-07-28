@@ -12,3 +12,27 @@
 .mat-menu-item:hover:not([disabled]) {
   background: rgba(0,0,0,.04);
 }
+
+/* Sidenav */
+
+md-sidenav-container,
+.mat-sidenav-container {
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+md-sidenav,
+.mat-sidenav {
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+    width: 250px;
+}
+
+/* List */
+
+.mat-list .mat-list-item,
+.mat-nav-list .mat-list-item,
+.mat-list .mat-list-item .mat-list-item-content,
+.mat-nav-list .mat-list-item .mat-list-item-content {
+    color: rgba(0, 0, 0, 0.87);
+}

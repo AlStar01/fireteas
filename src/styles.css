@@ -2,7 +2,7 @@
 
 @import '~@angular/material/prebuilt-themes/purple-green.css';
 
-@import './styles/material-overrides.css';
+@import 'styles/material-overrides.css';
 
 html {
   height: 100%;
@@ -19,6 +19,10 @@ body {
 
 pre {
     white-space: pre-wrap;
+}
+
+main {
+    padding: 24px;
 }
 
 .auto-spacer {
