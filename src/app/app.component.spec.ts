@@ -1,15 +1,23 @@
 import { TestBed, async } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { MdMenuModule } from '@angular/material';
+
+import { AuthService } from './core/auth/auth.service';
 
 import { AppComponent } from './app.component';
 
-class RouterStub { }
+const authServiceStub = { };
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MdMenuModule],
       declarations: [AppComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        { provide: AuthService, useValue: authServiceStub },
+      ]
     }).compileComponents();
   }));
 

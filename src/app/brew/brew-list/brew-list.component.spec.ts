@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MdGridListModule } from '@angular/material';
+
 import { BrewListComponent } from './brew-list.component';
 
 describe('BrewListComponent', () => {
@@ -8,6 +10,7 @@ describe('BrewListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MdGridListModule],
       declarations: [ BrewListComponent ]
     })
     .compileComponents();

@@ -1,11 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { AuthService } from './auth.service';
+
+const angularFireAuthStub = {};
 
 describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthService]
+      providers: [
+        AuthService,
+       { provide: AngularFireAuth, useValue: angularFireAuthStub }
+      ]
     });
   });
 
