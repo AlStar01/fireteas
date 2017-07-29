@@ -13,6 +13,7 @@ import {
   MdGridListModule } from '@angular/material';
 
 import { NavigationComponent } from './layout/navigation/navigation.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   imports: [
@@ -35,10 +36,12 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
     MdListModule,
     MdMenuModule,
     MdGridListModule,
-    NavigationComponent
+    NavigationComponent,
+    HeaderComponent
   ],
   declarations: [
-    NavigationComponent
+    NavigationComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }
