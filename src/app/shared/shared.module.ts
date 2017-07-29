@@ -3,14 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {
-  MdSidenavModule,
-  MdToolbarModule,
-  MdIconModule,
-  MdButtonModule,
-  MdListModule,
-  MdMenuModule,
-  MdGridListModule } from '@angular/material';
+import { SharedMaterialModule } from "./material.module";
 
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -19,23 +12,12 @@ import { HeaderComponent } from './layout/header/header.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    MdSidenavModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdButtonModule,
-    MdListModule,
-    MdMenuModule
+    SharedMaterialModule
   ],
   exports: [
     CommonModule,
     FlexLayoutModule,
-    MdSidenavModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdButtonModule,
-    MdListModule,
-    MdMenuModule,
-    MdGridListModule,
+    SharedMaterialModule,
     NavigationComponent,
     HeaderComponent
   ],
