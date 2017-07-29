@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from "./page-not-found.component";
 
 const appRoutes: Routes = [
   { path: '', loadChildren: 'app/teas/teas.module#TeasModule' },
+  { path: 'brew', loadChildren: 'app/brew/brew.module#BrewModule' },
   { path: 'about', component: AboutComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
