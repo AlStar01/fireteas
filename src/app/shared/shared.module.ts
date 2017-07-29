@@ -8,6 +8,8 @@ import { SharedMaterialModule } from "./material.module";
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { HeaderComponent } from './layout/header/header.component';
 
+import { TimerComponent } from './timer/timer.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,11 +21,13 @@ import { HeaderComponent } from './layout/header/header.component';
     FlexLayoutModule,
     SharedMaterialModule,
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    TimerComponent
   ],
   declarations: [
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    TimerComponent
   ]
 })
 export class SharedModule { }
