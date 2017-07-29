@@ -12,6 +12,8 @@ import {
   MdMenuModule,
   MdGridListModule } from '@angular/material';
 
+import { NavigationComponent } from './layout/navigation/navigation.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +34,11 @@ import {
     MdButtonModule,
     MdListModule,
     MdMenuModule,
-    MdGridListModule
+    MdGridListModule,
+    NavigationComponent
+  ],
+  declarations: [
+    NavigationComponent
   ]
 })
 export class SharedModule { }
