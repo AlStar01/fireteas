@@ -7,7 +7,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedMaterialModule } from './material.module';
 
 import { NavigationComponent } from './layout/navigation/navigation.component';
-import { HeaderComponent } from './layout/header/header.component';
 
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
@@ -23,12 +22,10 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
     FlexLayoutModule,
     SharedMaterialModule,
     NavigationComponent,
-    HeaderComponent,
     CountdownTimerComponent
   ],
   declarations: [
     NavigationComponent,
-    HeaderComponent,
     CountdownTimerComponent
   ]
 })

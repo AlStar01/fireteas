@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MdIconModule } from '@angular/material';
+
 import { CountdownTimerComponent } from './countdown-timer.component';
 
 describe('CountdownTimerComponent', () => {
@@ -8,6 +10,7 @@ describe('CountdownTimerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MdIconModule ],
       declarations: [ CountdownTimerComponent ]
     })
     .compileComponents();
