@@ -1,4 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { MdIconModule } from '@angular/material';
 
@@ -24,5 +25,38 @@ describe('CountdownTimerComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display the default time when no time provided', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const time = compiled.querySelector('.time').textContent;
+
+    expect(time).toEqual('03:00');
+  });
+
+  it('should display transformed time when input provided', () => {
+    component.seconds = 150;
+
+    fixture.detectChanges();
+
+    const compiled = fixture.debugElement.nativeElement;
+    const time = compiled.querySelector('.time').textContent;
+
+    expect(time).toEqual('02:30');
+  });
+
+  it('should reset the timer', () => {
+    component.seconds = 150;
+
+    fixture.detectChanges();
+
+    component.reset();
+
+    fixture.detectChanges();
+
+    const compiled = fixture.debugElement.nativeElement;
+    const time = compiled.querySelector('.time').textContent;
+
+    expect(time).toEqual('03:00');
   });
 });
