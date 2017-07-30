@@ -1,3 +1,4 @@
 <div class="time">{{getDisplayTime(seconds)}}</div>
 
-<button type="button" (click)="start()" md-fab><md-icon>play_arrow</md-icon></button>
+<button *ngIf="!intervalId" type="button" (click)="start()" md-fab><md-icon>play_arrow</md-icon></button>
+<button *ngIf="intervalId" type="button" (click)="reset()" md-fab><md-icon>refresh</md-icon></button>

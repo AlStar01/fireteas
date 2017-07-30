@@ -6,12 +6,15 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
   styleUrls: ['./countdown-timer.component.css']
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
+  intervalId: number;
+  seconds: number;
+
   @Input()
-  seconds = 180;
+  duration = 180;
 
-  intervalId = 0;
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.seconds = this.duration;
+  }
 
   ngOnDestroy(): void { this.clearTimer(); }
 
@@ -19,8 +22,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.countDown();
   }
 
-  clearTimer(): void {
-    clearInterval(this.intervalId);
+  reset(): void {
+    this.clearTimer();
   }
 
   getDisplayTime(time: number): string {
@@ -35,13 +38,24 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     return `${minutesDisplay}:${secondsDisplay}`;
   }
 
+  private clearTimer(): void {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+
+    this.resetTimer();
+  }
+
+  private resetTimer(): void {
+    this.seconds = this.duration;
+  }
+
   private countDown() {
     this.clearTimer();
 
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0) {
-        // completed
+        this.clearTimer();
       }
     }, 1000);
   }

@@ -1,0 +1,9 @@
+:host {
+    text-align: center;
+}
+
+.time {
+    font-size: 72px;
+    line-height: 72px;
+    margin-bottom: 1rem;
+}
