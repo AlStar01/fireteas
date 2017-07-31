@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
+import { BrewService } from '../brew.service';
 
 @Component({
   selector: 'app-brew-detail',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brew-detail.component.css']
 })
 export class BrewDetailComponent implements OnInit {
+  brewTime: number;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private brewService: BrewService) { }
 
   ngOnInit() {
-  }
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const type = params.get('id');
 
+      this.brewTime = this.brewService.getBrewTime(type);
+    });
+  }
 }

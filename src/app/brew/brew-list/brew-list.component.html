@@ -5,7 +5,8 @@
       *ngFor="let tile of tiles"
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
-      [style.background]="tile.color">
-    {{tile.text}}
+      [style.background]="tile.color"
+      [routerLink]="['/brew', tile.type]">
+    {{tile.type | uppercase}}
   </md-grid-tile>
 </md-grid-list>

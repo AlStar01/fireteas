@@ -5,7 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { BrewListComponent } from './brew-list/brew-list.component';
 import { BrewDetailComponent } from './brew-detail/brew-detail.component';
-import { BrewRoutingModule } from "./brew-routing.module";
+import { BrewRoutingModule } from './brew-routing.module';
+import { BrewService } from './brew.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { BrewRoutingModule } from "./brew-routing.module";
   declarations: [
     BrewListComponent,
     BrewDetailComponent
-  ]
+  ],
+  providers: [BrewService]
 })
 export class BrewModule { }
