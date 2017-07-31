@@ -1,0 +1,17 @@
+:host {
+    height: 100%;
+}
+
+.mat-button-icon {
+    border: none;
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    width: 18px;
+    margin-right: 5px;
+}
+
+.error {
+    color: #f44336;
+    text-align: center;
+}

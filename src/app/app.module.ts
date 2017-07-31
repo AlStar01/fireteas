@@ -12,11 +12,13 @@ import { environment } from '../environments/environment';
 
 import './rxjs-extensions';
 
-import { CoreModule }  from './core/core.module';
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+import { AuthRoutingModule } from './shared/auth/auth-routing.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AboutComponent } from './about/about.component';
@@ -25,7 +27,7 @@ import { AboutComponent } from './about/about.component';
   declarations: [
     AppComponent,
     AboutComponent,
-    PageNotFoundComponent    
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { AboutComponent } from './about/about.component';
     AngularFireAuthModule,
     CoreModule.forRoot(),
     SharedModule,
+    AuthRoutingModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

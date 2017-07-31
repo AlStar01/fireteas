@@ -1,3 +1,12 @@
-<p>
-  login works!
-</p>
+<div fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <h2>Sign In</h2>
+
+  <button (click)="loginGoogle()" md-raised-button color="accent">
+    <img class="mat-button-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+    Sign in with Google
+  </button>
+
+  <br />
+
+  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+</div>

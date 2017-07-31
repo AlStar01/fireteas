@@ -3,6 +3,7 @@
 @import '~@angular/material/prebuilt-themes/purple-green.css';
 
 @import 'styles/material-overrides.css';
+@import 'styles/utilties.css';
 
 html {
   height: 100%;

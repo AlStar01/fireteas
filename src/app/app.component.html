@@ -10,7 +10,7 @@
       </button>
       <h1>{{title}}</h1>
       <span class="auto-spacer"></span>
-      <button *ngIf="!(authService.user | async)" type="button" md-button (click)="login()">LOGIN</button>
+      <button *ngIf="!(authService.user | async)" type="button" md-button routerLink="/login">LOGIN</button>
 
       <md-menu #appMenu="mdMenu">
         <button md-menu-item (click)="logout()">Logout</button>

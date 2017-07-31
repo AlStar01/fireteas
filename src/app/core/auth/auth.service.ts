@@ -29,11 +29,11 @@ export class AuthService {
       });
   }
 
-  login(): void {
-    this.afAuth.auth.signInWithPopup(new Firebase.auth.GoogleAuthProvider());
+  login(): Firebase.Promise<Firebase.auth.UserCredential> {
+    return this.afAuth.auth.signInWithPopup(new Firebase.auth.GoogleAuthProvider());
   }
 
-  logout(): void {
-    this.afAuth.auth.signOut();
+  logout(): Firebase.Promise<any> {
+    return this.afAuth.auth.signOut();
   }
 }
