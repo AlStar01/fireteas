@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Brew } from '../brew';
 import { BrewService } from '../brew.service';
 
 @Component({
@@ -8,11 +9,11 @@ import { BrewService } from '../brew.service';
   styleUrls: ['./brew-list.component.css']
 })
 export class BrewListComponent implements OnInit {
-  tiles: any[] = [];
+  brews: Brew[] = [];
 
   constructor(private brewService: BrewService) {}
 
   ngOnInit(): void {
-    this.tiles = this.brewService.getBrews();
+    this.brews = this.brewService.getBrews();
   }
 }
