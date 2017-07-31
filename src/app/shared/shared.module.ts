@@ -16,6 +16,7 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 
 // Auth
 import { LoginComponent } from './auth/login/login.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -30,12 +31,14 @@ import { LoginComponent } from './auth/login/login.component';
     SharedMaterialModule,
     NavigationComponent,
     CountdownTimerComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
   ],
   declarations: [
     NavigationComponent,
     CountdownTimerComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
   ]
 })
 export class SharedModule { }

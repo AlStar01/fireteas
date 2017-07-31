@@ -6,10 +6,10 @@ import * as Firebase from 'firebase/app';
 import { AuthService } from '../../../core/auth/auth.service';
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
-export class LoginComponent {
+export class SignUpComponent {
   errorMessage: string;
 
   constructor(
@@ -17,7 +17,7 @@ export class LoginComponent {
     private router: Router,
     private zone: NgZone) { }
 
-  loginGoogle(): void {
+  signupGoogle(): void {
     const router = this.router;
 
     this.authService.login()
