@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { MdIconModule, MdProgressSpinnerModule } from '@angular/material';
 
 import { CountdownTimerComponent } from './countdown-timer.component';
+import { BlinkDirective } from '../directives/blink.directive';
 
 describe('CountdownTimerComponent', () => {
   let component: CountdownTimerComponent;
@@ -15,7 +16,10 @@ describe('CountdownTimerComponent', () => {
         MdIconModule,
         MdProgressSpinnerModule
       ],
-      declarations: [ CountdownTimerComponent ]
+      declarations: [
+        BlinkDirective,
+        CountdownTimerComponent
+      ]
     })
     .compileComponents();
   }));
@@ -95,6 +99,38 @@ describe('CountdownTimerComponent', () => {
     fixture.detectChanges();
 
     const actual = component.getSpinnerValue();
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should know when time remaining is ending', () => {
+    const expected = true;
+
+    component.seconds = 20;
+
+    fixture.detectChanges();
+
+    const actual = component.isEnding();
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should not display start button once timer has started', () => {
+    const expected = false;
+
+    component.seconds = 150;
+
+    fixture.detectChanges();
+
+    const actual = component.isStartVisible();
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should not display restart button if timer has not started', () => {
+    const expected = false;
+
+    const actual = component.isRestartVisible();
 
     expect(actual).toEqual(expected);
   });

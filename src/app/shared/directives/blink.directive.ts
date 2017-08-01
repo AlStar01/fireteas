@@ -6,29 +6,27 @@ import { Directive, Input, HostBinding, ElementRef, OnDestroy, OnChanges, Simple
 export class BlinkDirective implements OnChanges, OnDestroy {
   intervalId: number;
 
-  @Input()
-  show = true;
+  // tslint:disable-next-line:no-input-rename
+  @Input() appBlink = true;
 
-  @HostBinding() get hidden() {
-    return this.show;
+  @HostBinding('style.visibility') get visibility() {
+    return this.appBlink ? 'hidden' : 'visible';
   }
 
   constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    changes['show'] ? this.start() : this.stop();
+    changes['appBlink'].currentValue ? this.start() : this.stop();
   }
 
   ngOnDestroy(): void {
-    if (this.intervalId) {
-      this.stop();
-    }
+    this.stop();
   }
 
   start(): void {
     this.intervalId = window.setInterval(() => {
-      this.show = !this.show;
-    }, 1000);
+      this.appBlink = !this.appBlink;
+    }, 499);
   }
 
   stop(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
+import { BlinkDirective } from '../directives/blink.directive';
+
 @Component({
   selector: 'app-countdown-timer',
   templateUrl: './countdown-timer.component.html',
@@ -8,6 +10,8 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 export class CountdownTimerComponent implements OnInit, OnDestroy {
   intervalId: number;
   seconds: number;
+
+  shouldBlink = false;
 
   @Input()
   duration = 180;
@@ -42,13 +46,30 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   }
 
   getSpinnerValue(): number {
-    const percentage = (this.seconds / this.duration) * 100;
-    return Math.ceil(percentage);
+    return this.getPercentRemaining();
   }
 
   getSpinnerColor(): string {
-    const spinnerValue = this.getSpinnerValue();
-    return spinnerValue < 20 ? 'warn' : 'primary';
+    const percentRemaining = this.getPercentRemaining();
+    return percentRemaining < 25 ? 'warn' : 'primary';
+  }
+
+  isEnding(): boolean {
+    const percentRemaining = this.getPercentRemaining();
+    return percentRemaining < 25;
+  }
+
+  isStartVisible(): boolean {
+    return !this.intervalId && (this.seconds === this.duration);
+  }
+
+  isRestartVisible(): boolean {
+    return !!this.intervalId || (this.seconds < this.duration);
+  }
+
+  private getPercentRemaining(): number {
+    const percentage = (this.seconds / this.duration) * 100;
+    return Math.ceil(percentage);
   }
 
   private clearTimer(): void {
