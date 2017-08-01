@@ -13,8 +13,6 @@ export class BlinkDirective implements OnChanges, OnDestroy {
     return this.appBlink ? 'hidden' : 'visible';
   }
 
-  constructor(private el: ElementRef) {}
-
   ngOnChanges(changes: SimpleChanges): void {
     changes['appBlink'].currentValue ? this.start() : this.stop();
   }
