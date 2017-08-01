@@ -16,7 +16,9 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.seconds = this.duration;
   }
 
-  ngOnDestroy(): void { this.clearTimer(); }
+  ngOnDestroy(): void {
+    this.reset();
+  }
 
   start(): void {
     this.countDown();
@@ -24,6 +26,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 
   reset(): void {
     this.clearTimer();
+    this.resetTimer();
   }
 
   getDisplayTime(time: number): string {
@@ -38,11 +41,19 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     return `${minutesDisplay}:${secondsDisplay}`;
   }
 
+  getSpinnerValue(): number {
+    const percentage = (this.seconds / this.duration) * 100;
+    return Math.ceil(percentage);
+  }
+
+  getSpinnerColor(): string {
+    const spinnerValue = this.getSpinnerValue();
+    return spinnerValue < 20 ? 'warn' : 'primary';
+  }
+
   private clearTimer(): void {
     clearInterval(this.intervalId);
     this.intervalId = null;
-
-    this.resetTimer();
   }
 
   private resetTimer(): void {
