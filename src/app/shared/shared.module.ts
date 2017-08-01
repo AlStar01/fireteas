@@ -18,6 +18,9 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
+// Directives
+import { BlinkDirective } from './directives/blink.directive';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,13 +35,15 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
     NavigationComponent,
     CountdownTimerComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    BlinkDirective
   ],
   declarations: [
     NavigationComponent,
     CountdownTimerComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    BlinkDirective
   ]
 })
 export class SharedModule { }
