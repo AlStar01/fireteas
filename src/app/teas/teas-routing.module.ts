@@ -5,6 +5,7 @@ import { TeaListComponent } from './tea-list/tea-list.component';
 import { TeaDetailComponent } from './tea-detail/tea-detail.component';
 
 const teaRoutes: Routes = [
+  { path: '', redirectTo: '/teas', pathMatch: 'full' },
   {
     path: 'teas',
     children: [

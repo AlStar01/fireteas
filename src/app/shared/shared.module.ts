@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpModule} from '@angular/http';
 
 // Style
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -30,6 +31,8 @@ import { BlinkDirective } from './directives/blink.directive';
   ],
   exports: [
     CommonModule,
+    RouterModule,
+    HttpModule,
     FlexLayoutModule,
     SharedMaterialModule,
     NavigationComponent,
