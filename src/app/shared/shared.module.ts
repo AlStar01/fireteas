@@ -15,10 +15,6 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
 // Components
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
-// Auth
-import { LoginComponent } from './auth/login/login.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
 
@@ -37,15 +33,11 @@ import { BlinkDirective } from './directives/blink.directive';
     SharedMaterialModule,
     NavigationComponent,
     CountdownTimerComponent,
-    LoginComponent,
-    SignUpComponent,
     BlinkDirective
   ],
   declarations: [
     NavigationComponent,
     CountdownTimerComponent,
-    LoginComponent,
-    SignUpComponent,
     BlinkDirective
   ]
 })

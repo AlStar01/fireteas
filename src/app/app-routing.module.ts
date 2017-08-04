@@ -7,6 +7,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
 const appRoutes: Routes = [
   { path: 'teas', loadChildren: 'app/teas/teas.module#TeasModule' },
   { path: 'brew', loadChildren: 'app/brew/brew.module#BrewModule' },
+  { path: 'login', loadChildren: 'app/auth/login/login.module#LoginModule' },
+  { path: 'sign-up', loadChildren: 'app/auth/sign-up/sign-up.module#SignUpModule' },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/teas', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

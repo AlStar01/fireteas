@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 
 import * as Firebase from 'firebase/app';
 
-import { AuthService } from '../../../core/auth/auth.service';
+import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignUpComponent {
+export class LoginComponent {
   errorMessage: string;
 
   constructor(
@@ -17,7 +17,7 @@ export class SignUpComponent {
     private router: Router,
     private zone: NgZone) { }
 
-  signupGoogle(): void {
+  loginGoogle(): void {
     const router = this.router;
 
     this.authService.login()
