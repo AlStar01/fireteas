@@ -1,7 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
-import { BlinkDirective } from '../directives/blink.directive';
-
 @Component({
   selector: 'app-countdown-timer',
   templateUrl: './countdown-timer.component.html',

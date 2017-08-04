@@ -7,6 +7,8 @@ import { BrewDetailComponent } from './brew-detail/brew-detail.component';
 import { BrewRoutingModule } from './brew-routing.module';
 import { BrewService } from './brew.service';
 
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
+
 @NgModule({
   imports: [
     SharedModule,
@@ -14,7 +16,8 @@ import { BrewService } from './brew.service';
   ],
   declarations: [
     BrewListComponent,
-    BrewDetailComponent
+    BrewDetailComponent,
+    CountdownTimerComponent
   ],
   providers: [BrewService]
 })

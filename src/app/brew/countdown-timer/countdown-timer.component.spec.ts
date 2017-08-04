@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { MdIconModule, MdProgressSpinnerModule } from '@angular/material';
 
 import { CountdownTimerComponent } from './countdown-timer.component';
-import { BlinkDirective } from '../directives/blink.directive';
+import { BlinkDirective } from '../../shared/directives/blink.directive';
 
 describe('CountdownTimerComponent', () => {
   let component: CountdownTimerComponent;

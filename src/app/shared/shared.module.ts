@@ -20,9 +20,6 @@ import {
 // Layout
 import { NavigationComponent } from './layout/navigation/navigation.component';
 
-// Components
-import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
-
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
 
@@ -51,12 +48,10 @@ const materialModules = [
     FlexLayoutModule,
     ...materialModules,
     NavigationComponent,
-    CountdownTimerComponent,
     BlinkDirective
   ],
   declarations: [
     NavigationComponent,
-    CountdownTimerComponent,
     BlinkDirective
   ]
 })
