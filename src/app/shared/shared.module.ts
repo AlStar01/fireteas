@@ -7,7 +7,15 @@ import { HttpModule} from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material Modules
-import { SharedMaterialModule } from './material.module';
+import {
+  MdSidenavModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdButtonModule,
+  MdListModule,
+  MdMenuModule,
+  MdGridListModule,
+  MdProgressSpinnerModule } from '@angular/material';
 
 // Layout
 import { NavigationComponent } from './layout/navigation/navigation.component';
@@ -18,19 +26,30 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
 
+const materialModules = [
+  MdSidenavModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdButtonModule,
+  MdListModule,
+  MdMenuModule,
+  MdGridListModule,
+  MdProgressSpinnerModule
+];
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedMaterialModule
+    ...materialModules
   ],
   exports: [
     CommonModule,
     RouterModule,
     HttpModule,
     FlexLayoutModule,
-    SharedMaterialModule,
+    ...materialModules,
     NavigationComponent,
     CountdownTimerComponent,
     BlinkDirective
