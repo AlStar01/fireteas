@@ -5,12 +5,17 @@ import { BrewListComponent } from './brew-list/brew-list.component';
 import { BrewDetailComponent } from './brew-detail/brew-detail.component';
 
 const brewRoutes: Routes = [
-    { path: '', component: BrewListComponent },
-    { path: ':id', component: BrewDetailComponent }
+  {
+    path: '',
+    children: [
+      { path: '', component: BrewListComponent },
+      { path: ':id', component: BrewDetailComponent }
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(brewRoutes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(brewRoutes)],
+  exports: [RouterModule]
 })
-export class BrewRoutingModule {}
+export class BrewRoutingModule { }

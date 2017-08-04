@@ -6,7 +6,7 @@ import { TeaDetailComponent } from './tea-detail/tea-detail.component';
 
 const teaRoutes: Routes = [
   {
-    path: 'teas',
+    path: '',
     children: [
       { path: '', component: TeaListComponent },
       { path: ':id', component: TeaDetailComponent }
