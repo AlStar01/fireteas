@@ -8,5 +8,5 @@ exports.newUser = functions.auth.user().onCreate(event => {
 
     const user = Object.assign({}, event.data, { joinDate: date });
 
-    admin.database().ref('/users').push(newUser);
+    admin.database().ref('/users').push(user);
 });

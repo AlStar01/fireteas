@@ -4,11 +4,20 @@ import {
 
 import { CommonModule } from '@angular/common';
 
+// Firebase
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+// Auth
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
 @NgModule({
   imports: [CommonModule],
+  exports: [
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
+  ],
   providers: [
     AuthService,
     AuthGuard
