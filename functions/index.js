@@ -4,11 +4,9 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 exports.newUser = functions.auth.user().onCreate(event => {
-    const user = event.data;
-
     const date = new Date().toISOString();
 
-    const newUser = Object.assign({}, user, { joinedDate: date });
+    const user = Object.assign({}, event.data, { joinDate: date });
 
     admin.database().ref('/users').push(newUser);
 });
