@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+import * as Firebase from 'firebase/app';
 
 import { AuthService } from '../core/auth/auth.service';
 
@@ -22,9 +23,7 @@ const brews: Brew[] = [
 export class BrewService {
   brews: FirebaseListObservable<any>;
 
-  constructor(
-    private db: AngularFireDatabase,
-    private authService: AuthService) {
+  constructor(private db: AngularFireDatabase, private authService: AuthService) {
     this.brews = this.db.list('/brews');
   }
 
@@ -36,7 +35,7 @@ export class BrewService {
           const { uid, displayName } = auth;
 
           const { brewTime, type } = brew;
-          const completedDate: string = new Date().toISOString();
+          const completedDate = Firebase.database.ServerValue.TIMESTAMP;
 
           const brewData = {
             uid,
@@ -48,7 +47,8 @@ export class BrewService {
 
           const newBrewKey = this.brews.push({}).key;
 
-          const updates = {};
+          // tslint:disable-next-line:prefer-const
+          let updates = {};
 
           updates[`/brews/${newBrewKey}`] = brewData;
           updates[`/users/${uid}/brews/${newBrewKey}`] = true;
