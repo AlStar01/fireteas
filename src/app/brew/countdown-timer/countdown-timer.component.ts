@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-countdown-timer',
@@ -13,6 +13,9 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 
   @Input()
   duration = 180;
+
+  @Output()
+  onCompleted = new EventEmitter<boolean>();
 
   ngOnInit(): void {
     this.seconds = this.duration;
@@ -85,6 +88,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0) {
+        this.onCompleted.emit(true);
+
         this.clearTimer();
       }
     }, 1000);

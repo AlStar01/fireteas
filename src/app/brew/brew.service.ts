@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+
+import { AuthService } from '../core/auth/auth.service';
+
 import { Brew } from './brew';
 
 const lightText = 'rgba(255, 255, 255, 1)';
@@ -16,14 +20,52 @@ const brews: Brew[] = [
 
 @Injectable()
 export class BrewService {
+  brews: FirebaseListObservable<any>;
+
+  constructor(
+    private db: AngularFireDatabase,
+    private authService: AuthService) {
+    this.brews = this.db.list('/brews');
+  }
+
+  addBrew(brew: Brew) {
+    this.authService.user
+      .take(1)
+      .subscribe(auth => {
+        if (auth) {
+          const { uid, displayName } = auth;
+
+          const { brewTime, type } = brew;
+          const completedDate: string = new Date().toISOString();
+
+          const brewData = {
+            uid,
+            displayName,
+            type,
+            brewTime,
+            completedDate
+          };
+
+          const newBrewKey = this.brews.push({}).key;
+
+          const updates = {};
+
+          updates[`/brews/${newBrewKey}`] = brewData;
+          updates[`/users/${uid}/brews/${newBrewKey}`] = true;
+
+          this.db.object('/').update(updates);
+        }
+      });
+  }
+
   getBrews(): Brew[] {
     return brews;
   }
 
-  getBrewTime(type: string): number {
+  getBrew(type: string): Brew {
     const id = type.toLocaleLowerCase();
     const brew = brews.find(t => t.type === id);
 
-    return brew.brewTime;
+    return brew;
   }
 }

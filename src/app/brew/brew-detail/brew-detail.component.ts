@@ -3,13 +3,15 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { BrewService } from '../brew.service';
 
+import { Brew } from '../brew';
+
 @Component({
   selector: 'app-brew-detail',
   templateUrl: './brew-detail.component.html',
   styleUrls: ['./brew-detail.component.css']
 })
 export class BrewDetailComponent implements OnInit {
-  brewTime: number;
+  brew: Brew;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,8 +20,11 @@ export class BrewDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const type = params.get('id');
-
-      this.brewTime = this.brewService.getBrewTime(type);
+      this.brew = this.brewService.getBrew(type);
     });
+  }
+
+  onCompleted(completed: boolean): void {
+    this.brewService.addBrew(this.brew);
   }
 }

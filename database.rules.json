@@ -4,8 +4,15 @@
     ".write": false,
     "users": {
       "$uid": {
-        ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
+        ".read": "(auth != null) && ($uid === auth.uid)",
+        ".write": "(auth != null) && ($uid === auth.uid)"
+      }
+    },
+    "brews": {
+      ".read": "(auth != null)",
+      "$brewId": {
+        ".write": "(auth != null)",
+        ".validate": "(newData.hasChildren(['brewTime','type','completedDate']))"
       }
     }
   }
