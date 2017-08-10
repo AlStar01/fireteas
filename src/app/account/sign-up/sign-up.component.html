@@ -1,12 +1,25 @@
-<div fxFlex fxLayout="column" fxLayoutAlign="center center">
-  <h2>Sign Up</h2>
+<div fxFlex fxLayoutAlign="center center">
+  <md-card>
+    <md-card-header>
+      <md-card-title>
+        <h2>Sign Up</h2>
+      </md-card-title>
+      <md-card-subtitle>Sign up to manage your account, track brews, and more.</md-card-subtitle>
+    </md-card-header>
 
-  <button (click)="signupGoogle()" md-raised-button color="accent">
-    <img class="mat-button-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
-    Sign up with Google
-  </button>
+    <md-card-content fxLayoutAlign="center center">
+      <button (click)="signupGoogle()" md-raised-button color="accent">
+        <img class="mat-button-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+        Sign up with Google
+      </button>
+    </md-card-content>
 
-  <br />
+    <br />
+
+    <md-card-footer>
+      <p class="text-center">Already a member? <a routerLink="/login">Log in</a></p>
+    </md-card-footer>
+  </md-card>
 
   <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
 </div>
