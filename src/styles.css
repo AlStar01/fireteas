@@ -24,8 +24,11 @@ pre {
 }
 
 main {
-    padding: 24px;
     height: 100%;
+}
+
+.content {
+  padding: 24px;
 }
 
 .auto-spacer {
