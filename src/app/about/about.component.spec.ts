@@ -24,8 +24,8 @@ describe('AboutComponent', () => {
   });
 
   it('should render title in a h2 tag', async(() => {
-    const fixture = TestBed.createComponent(AboutComponent);
     fixture.detectChanges();
+
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h2').textContent).toContain('About');
   }));
