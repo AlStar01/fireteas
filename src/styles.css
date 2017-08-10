@@ -4,6 +4,7 @@
 
 @import 'styles/material-overrides.css';
 @import 'styles/utilties.css';
+@import 'styles/buttons.css';
 
 html {
   height: 100%;
