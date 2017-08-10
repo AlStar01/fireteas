@@ -16,7 +16,8 @@ import {
   MdMenuModule,
   MdGridListModule,
   MdProgressSpinnerModule,
-  MdCardModule } from '@angular/material';
+  MdCardModule,
+  MdTabsModule } from '@angular/material';
 
 // Layout
 import { NavigationComponent } from './layout/navigation/navigation.component';
@@ -31,9 +32,9 @@ const materialModules = [
   MdButtonModule,
   MdListModule,
   MdMenuModule,
-  MdGridListModule,
   MdProgressSpinnerModule,
-  MdCardModule
+  MdCardModule,
+  MdTabsModule
 ];
 
 @NgModule({

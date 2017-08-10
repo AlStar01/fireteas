@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   { path: 'brew', loadChildren: 'app/brew/brew.module#BrewModule' },
   { path: 'login', loadChildren: 'app/account/login/login.module#LoginModule' },
   { path: 'sign-up', loadChildren: 'app/account/sign-up/sign-up.module#SignUpModule' },
+  { path: 'dashboard', loadChildren: 'app/account/dashboard/dashboard.module#DashboardModule' },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/teas', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
