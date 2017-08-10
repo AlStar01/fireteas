@@ -1,13 +1,9 @@
 <h2>Brew</h2>
 
-<md-grid-list cols="4" rowHeight="100px">
-  <md-grid-tile
-      *ngFor="let brew of brews"
-      [colspan]="brew.cols"
-      [rowspan]="brew.rows"
-      [style.background]="brew.backgroundColor"
-      [style.color]="brew.textColor"
-      [routerLink]="['/brew', brew.type]">
+<p>Select a type to get started</p>
+
+<md-nav-list>
+  <a md-list-item [routerLink]="['/brew', brew.type]" *ngFor="let brew of brews">
     {{brew.type | uppercase}}
-  </md-grid-tile>
-</md-grid-list>
+  </a>
+</md-nav-list>
