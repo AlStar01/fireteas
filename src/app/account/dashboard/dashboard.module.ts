@@ -4,9 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 
 import { DashboardService } from './dashboard.service';
-import { DashboardComponent } from './dashboard.component';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
+
+import { DashboardComponent } from './dashboard.component';
+import { DashboardProfileComponent } from './dashboard-profile/dashboard-profile.component';
+import { DashboardBrewsComponent } from './dashboard-brews/dashboard-brews.component';
 
 @NgModule({
   imports: [
@@ -15,7 +18,9 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardRoutingModule
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    DashboardProfileComponent,
+    DashboardBrewsComponent
   ],
   providers: [DashboardService]
 })

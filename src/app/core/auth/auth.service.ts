@@ -34,6 +34,6 @@ export class AuthService {
   }
 
   logout(): Firebase.Promise<void> {
-    return this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut().then(() => this.router.navigate(['/login']));
   }
 }
