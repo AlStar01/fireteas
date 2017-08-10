@@ -3,7 +3,8 @@ import {
   CanActivate,
   CanActivateChild,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot } from '@angular/router';
+  RouterStateSnapshot
+} from '@angular/router';
 
 import { Observable } from 'rxjs/Rx';
 
@@ -13,13 +14,12 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService) { }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        const url: string = state.url;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    const url: string = state.url;
+    return this.authService.isLoggedIn(url);
+  }
 
-        return this.authService.isLoggedIn(url);
-    }
-
-    canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.canActivate(route, state);
-    }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.canActivate(route, state);
+  }
 }
