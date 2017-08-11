@@ -50,3 +50,11 @@ md-sidenav,
 .mat-card-subtitle {
   color: rgba(0, 0, 0, .54);
 }
+
+
+/* Tabs */
+
+md-ink-bar,
+.mat-ink-bar {
+  background-color: #69f0ae;
+}

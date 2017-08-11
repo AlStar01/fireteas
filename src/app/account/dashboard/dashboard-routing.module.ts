@@ -18,7 +18,8 @@ const dashboardRoutes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
           { path: 'profile', component: DashboardProfileComponent },
-          { path: 'brews', component: DashboardBrewsComponent }
+          { path: 'brews', component: DashboardBrewsComponent },
+          { path: '', redirectTo: 'profile', pathMatch: 'full' }
         ]
       }
     ]

@@ -3,8 +3,10 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   template: `
-    <h2>Page not found</h2>
-    <p>Oops! Go back to <a routerLink="/teas">tea list</a></p>
+    <div class="content">
+      <h2>Page not found</h2>
+      <p>Oops! Go back to <a routerLink="/teas">tea list</a></p>
+    </div>
   `
 })
 export class PageNotFoundComponent implements OnInit {
