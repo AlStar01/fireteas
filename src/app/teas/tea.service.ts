@@ -27,9 +27,9 @@ export class TeaService {
     return this.teas;
   }
 
-  getTeaData(type: string): Observable<Tea> {
+  getTea(type: string): Observable<Tea> {
     const url = this.getUrl(type);
-    return this.http.get(url).map(this.formatData);
+    return this.http.get(url).map(data => this.formatData(data, type));
   }
 
   private getUrl(type: string): string {
@@ -41,15 +41,16 @@ export class TeaService {
     return this.teas.find(tea => tea.type === type).title;
   }
 
-  private formatData(data: any): Tea {
+  private formatData(data: any, type: string): Tea {
     const pages = data.query.pages;
     const pageKeys = Object.keys(pages);
 
+    // we are only retrieving one page
     const page = pages[pageKeys[0]];
 
     const { title, extract, thumbnail: { source: thumbnail }, fullurl } = page;
 
-    const tea: Tea = { title, extract, thumbnail, fullurl };
+    const tea: Tea = { type, title, extract, thumbnail, fullurl };
 
     return tea;
   }

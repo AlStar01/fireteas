@@ -3,7 +3,6 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
-import { TeaService } from '../tea.service';
 import { Tea } from '../tea';
 
 @Component({
@@ -16,13 +15,12 @@ export class TeaDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private teaService: TeaService) { }
+    private router: Router) { }
 
   ngOnInit() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.teaService.getTeaData(params.get('id')))
-      .subscribe(tea => this.tea = tea);
+    this.route.data.subscribe((data: { tea: Tea}) => {
+      this.tea = data.tea;
+    });
   }
 
   goToTeas(): void {
