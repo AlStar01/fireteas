@@ -13,7 +13,6 @@ export class TeaDetailResolver implements Resolve<Tea> {
   constructor(private router: Router, private teaService: TeaService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tea> {
-    console.log('resolving');
     const type: string = route.paramMap.get('id');
 
     return this.teaService.getTea(type).do(tea => {
