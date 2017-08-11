@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpModule} from '@angular/http';
 
 // Style
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -47,7 +46,6 @@ const materialModules = [
   exports: [
     CommonModule,
     RouterModule,
-    HttpModule,
     FlexLayoutModule,
     ...materialModules,
     NavigationComponent,
