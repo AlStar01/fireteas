@@ -1,5 +1,17 @@
 <div class="content">
-  <p>
-    tea-detail works!
-  </p>
+  <div *ngIf="tea; else loading">
+    <h2>{{tea.title}}</h2>
+    <p>{{tea.extract}}</p>
+
+    <div>
+        <strong>Source:</strong> <a [href]="tea.fullurl" target="_blank">Wikipedia</a>
+    </div>
+  </div>
+
+  <ng-template #loading>Loading...</ng-template>
+
+  <br />
+  <br />
+
+  <button md-raised-button color="secondary" type="button" (click)="goToTeas()">Back</button>
 </div>

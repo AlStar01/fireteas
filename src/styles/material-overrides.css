@@ -58,3 +58,12 @@ md-ink-bar,
 .mat-ink-bar {
   background-color: #69f0ae;
 }
+
+
+/* Button */
+
+.mat-fab.mat-secondary,
+.mat-mini-fab.mat-secondary,
+.mat-raised-button.mat-secondary {
+  color: rgba(255, 255, 255, .87);
+}

@@ -6,6 +6,8 @@ import { TeaRoutingModule } from './teas-routing.module';
 import { TeaListComponent } from './tea-list/tea-list.component';
 import { TeaDetailComponent } from './tea-detail/tea-detail.component';
 
+import { TeaService } from './tea.service';
+
 @NgModule({
   imports: [
     SharedModule,
@@ -14,6 +16,7 @@ import { TeaDetailComponent } from './tea-detail/tea-detail.component';
   declarations: [
     TeaListComponent,
     TeaDetailComponent
-  ]
+  ],
+  providers: [TeaService]
 })
 export class TeasModule { }

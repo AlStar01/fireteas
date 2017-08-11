@@ -1,10 +1,11 @@
 <div class="content">
-  <p>
-    tea-list works!
-  </p>
+  <h2>Teas</h2>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi porro aut nam sed inventore rem accusantium facere magnam
-    harum corporis nemo molestias dolore, in, repellendus voluptatum ullam nesciunt, dolores ad!</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis adipisci, perspiciatis odit quaerat voluptatem nobis
-    non illum illo qui cupiditate, enim tempora dolorum reiciendis, dolorem quidem ratione praesentium asperiores. Autem!</p>
+  <p>Select a tea to learn more.</p>
+
+  <md-nav-list>
+    <a md-list-item [routerLink]="['/teas', tea.type]" *ngFor="let tea of teas">
+      {{tea.type | uppercase}}
+    </a>
+  </md-nav-list>
 </div>
