@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Tea } from './tea';
+import { WikipediaExtract } from '../shared/models/wikipedia-extract';
 
 @Injectable()
 export class TeaService {
@@ -29,7 +30,7 @@ export class TeaService {
 
   getTea(type: string): Observable<Tea> {
     const url = this.getUrl(type);
-    return this.http.get(url).map(data => this.formatData(data, type));
+    return this.http.get<WikipediaExtract>(url).map(data => this.formatData(data, type));
   }
 
   private getUrl(type: string): string {
@@ -41,11 +42,10 @@ export class TeaService {
     return this.teas.find(tea => tea.type === type).title;
   }
 
-  private formatData(data: any, type: string): Tea {
+  private formatData(data: WikipediaExtract, type: string): Tea {
     const pages = data.query.pages;
     const pageKeys = Object.keys(pages);
 
-    // we are only retrieving one page
     const page = pages[pageKeys[0]];
 
     const { title, extract, thumbnail: { source: thumbnail }, fullurl } = page;
