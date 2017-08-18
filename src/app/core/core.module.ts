@@ -1,9 +1,7 @@
 import {
   ModuleWithProviders, NgModule,
   Optional, SkipSelf } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
-
 import { HttpClientModule } from '@angular/common/http';
 
 // Firebase
@@ -14,16 +12,25 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
+// Layout
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { SidenavService } from './layout/sidenav/sidenav.service';
+
 @NgModule({
   imports: [CommonModule],
   exports: [
     HttpClientModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    SidenavComponent
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    SidenavService
+  ],
+  declarations: [
+    SidenavComponent
   ]
 })
 export class CoreModule {
