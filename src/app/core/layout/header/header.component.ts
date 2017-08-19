@@ -4,7 +4,8 @@ import { AuthService } from '../../auth/auth.service';
 import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
-  selector: 'app-header',
+  // tslint:disable-next-line:component-selector
+  selector: '[appHeader]',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
