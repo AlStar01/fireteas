@@ -1,19 +1,21 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
+import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class SidenavService {
-  private sidenavCloseSource = new Subject<boolean>();
+  private sidenavSource = new Subject<boolean>();
 
-  sidenavClose$ = this.sidenavCloseSource.asObservable();
+  sidenav$ = this.sidenavSource.asObservable();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private media: ObservableMedia) {
     this.router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe(event => {
-        this.sidenavCloseSource.next(true);
+        this.sidenavSource.next(true);
       });
   }
 }

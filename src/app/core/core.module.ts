@@ -13,8 +13,8 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
 // Layout
-import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { SidenavService } from './layout/sidenav/sidenav.service';
+import { SidenavDirective } from './layout/sidenav/sidenav.directive';
 
 @NgModule({
   imports: [CommonModule],
@@ -22,7 +22,7 @@ import { SidenavService } from './layout/sidenav/sidenav.service';
     HttpClientModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    SidenavComponent
+    SidenavDirective
   ],
   providers: [
     AuthService,
@@ -30,7 +30,7 @@ import { SidenavService } from './layout/sidenav/sidenav.service';
     SidenavService
   ],
   declarations: [
-    SidenavComponent
+    SidenavDirective
   ]
 })
 export class CoreModule {

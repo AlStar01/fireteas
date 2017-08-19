@@ -1,9 +1,8 @@
 <md-sidenav-container class="container mat-typography" fxFlexFill>
-  <md-sidenav #sidenav class="sidenav">
+  <md-sidenav #sidenav class="sidenav" [appSidenav]="sidenav">
     <app-navigation></app-navigation>
   </md-sidenav>
 
-  <app-sidenav></app-sidenav>
 
   <div fxFlex fxLayout="column">
     <md-toolbar color="primary">
