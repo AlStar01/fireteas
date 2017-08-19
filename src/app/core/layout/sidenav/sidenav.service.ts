@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class SidenavService {
-  private sidenavSource = new Subject<boolean>();
+  private sidenavSource = new Subject<string>();
 
   sidenav$ = this.sidenavSource.asObservable();
 
@@ -15,7 +15,15 @@ export class SidenavService {
     this.router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe(event => {
-        this.sidenavSource.next(true);
+        this.sidenavSource.next('close');
       });
+  }
+
+  open() {
+    this.sidenavSource.next('open');
+  }
+
+  close() {
+    this.sidenavSource.next('close');
   }
 }

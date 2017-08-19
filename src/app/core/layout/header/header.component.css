@@ -1,0 +1,21 @@
+.nav-button {
+  margin-right: 16px;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+.login {
+  margin-right: 8px;
+}
+
+.user-pic {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.user-pic:hover {
+  cursor: pointer;
+}

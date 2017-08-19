@@ -3,10 +3,16 @@ import {
   Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 // Firebase
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+// Material
+import {
+  MdToolbarModule, MdMenuModule,
+  MdButtonModule, MdIconModule } from '@angular/material';
 
 // Auth
 import { AuthService } from './auth/auth.service';
@@ -15,14 +21,27 @@ import { AuthGuard } from './auth/auth-guard.service';
 // Layout
 import { SidenavService } from './layout/sidenav/sidenav.service';
 import { SidenavDirective } from './layout/sidenav/sidenav.directive';
+import { HeaderComponent } from './layout/header/header.component';
+
+const materialModukes = [
+  MdToolbarModule,
+  MdMenuModule,
+  MdButtonModule,
+  MdIconModule
+];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ...materialModukes
+  ],
   exports: [
     HttpClientModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    SidenavDirective
+    SidenavDirective,
+    HeaderComponent
   ],
   providers: [
     AuthService,
@@ -30,7 +49,8 @@ import { SidenavDirective } from './layout/sidenav/sidenav.directive';
     SidenavService
   ],
   declarations: [
-    SidenavDirective
+    SidenavDirective,
+    HeaderComponent
   ]
 })
 export class CoreModule {

@@ -12,6 +12,8 @@ export class SidenavDirective implements OnInit {
   constructor(private sidenavService: SidenavService) { }
 
   ngOnInit(): void {
-    this.sidenavService.sidenav$.subscribe(close => this.appSidenav.close());
+    this.sidenavService.sidenav$.subscribe(action => {
+        this.appSidenav[action]();
+    });
   }
 }

@@ -5,32 +5,7 @@
 
 
   <div fxFlex fxLayout="column">
-    <md-toolbar color="primary">
-      <button md-icon-button class="nav-button" (click)="sidenav.open()">
-        <md-icon>menu</md-icon>
-      </button>
-      <h1>{{title}}</h1>
-      <span class="auto-spacer"></span>
-      <button
-        *ngIf="!(authService.user | async)"
-        class="login"
-        type="button"
-        md-button
-        routerLink="/login">LOG IN</button>
-      <button
-        *ngIf="!(authService.user | async)"
-        class="sign-up"
-        type="button"
-        md-raised-button
-        color="accent"
-        routerLink="/sign-up">SIGN UP</button>
-
-      <md-menu #appMenu="mdMenu">
-        <button md-menu-item routerLink="/account">My Account</button>
-        <button md-menu-item (click)="logout()">Logout</button>
-      </md-menu>
-      <img [mdMenuTriggerFor]="appMenu" class="user-pic" *ngIf="(authService.user | async)?.photoURL" [src]="(authService.user | async)?.photoURL" />
-    </md-toolbar>
+    <app-header></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>
