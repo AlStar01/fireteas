@@ -12,7 +12,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 // Material
 import {
   MdToolbarModule, MdMenuModule,
-  MdButtonModule, MdIconModule } from '@angular/material';
+  MdButtonModule, MdIconModule,
+  MdListModule } from '@angular/material';
 
 // Auth
 import { AuthService } from './auth/auth.service';
@@ -22,12 +23,14 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { SidenavService } from './layout/sidenav/sidenav.service';
 import { SidenavDirective } from './layout/sidenav/sidenav.directive';
 import { HeaderComponent } from './layout/header/header.component';
+import { NavigationComponent } from './layout/navigation/navigation.component';
 
 const materialModukes = [
   MdToolbarModule,
   MdMenuModule,
   MdButtonModule,
-  MdIconModule
+  MdIconModule,
+  MdListModule
 ];
 
 @NgModule({
@@ -41,7 +44,8 @@ const materialModukes = [
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     SidenavDirective,
-    HeaderComponent
+    HeaderComponent,
+    NavigationComponent
   ],
   providers: [
     AuthService,
@@ -50,7 +54,8 @@ const materialModukes = [
   ],
   declarations: [
     SidenavDirective,
-    HeaderComponent
+    HeaderComponent,
+    NavigationComponent
   ]
 })
 export class CoreModule {

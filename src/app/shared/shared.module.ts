@@ -18,9 +18,6 @@ import {
   MdCardModule,
   MdTabsModule } from '@angular/material';
 
-// Layout
-import { NavigationComponent } from './layout/navigation/navigation.component';
-
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
 
@@ -48,11 +45,9 @@ const materialModules = [
     RouterModule,
     FlexLayoutModule,
     ...materialModules,
-    NavigationComponent,
     BlinkDirective
   ],
   declarations: [
-    NavigationComponent,
     BlinkDirective
   ]
 })
