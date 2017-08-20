@@ -18,37 +18,30 @@ export class BrewService {
     { type: 'herbal', brewTime: 360 }
   ];
 
-  brewsRef: FirebaseListObservable<any>;
-
-  constructor(private db: AngularFireDatabase, private authService: AuthService) {
-    this.brewsRef = this.db.list('/brews');
-  }
+  constructor(
+    private db: AngularFireDatabase,
+    private authService: AuthService) {}
 
   addBrew(brew: Brew) {
     this.authService.user
       .take(1)
       .subscribe(user => {
         if (user) {
-          const { uid, displayName } = user;
+          const { uid, displayName, photoURL } = user;
 
           const { brewTime, type } = brew;
           const completedDate = Firebase.database.ServerValue.TIMESTAMP;
 
-          const brewData = {
-            uid,
-            displayName,
-            type,
-            brewTime,
-            completedDate
-          };
+          const userBrewData = { brewTime, completedDate, type, uid };
+          const brewData = Object.assign({}, userBrewData, { displayName, photoURL });
 
-          const newBrewKey = this.brewsRef.push({}).key;
+          const newBrewKey = this.db.list('/brews/').push({}).key;
 
           // tslint:disable-next-line:prefer-const
           let updates = {};
 
           updates[`/brews/${newBrewKey}`] = brewData;
-          updates[`/users/${uid}/brews/${newBrewKey}`] = true;
+          updates[`/user-brews/${uid}/${newBrewKey}`] = userBrewData;
 
           this.db.object('/').update(updates);
         }

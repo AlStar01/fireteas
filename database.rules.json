@@ -8,13 +8,21 @@
         ".write": "(auth != null) && ($uid === auth.uid)"
       }
     },
+    "user-brews": {
+      "$uid": {
+        ".read": "(auth != null)",
+        ".write": "(auth != null) && ($uid === auth.uid)",
+        "$brewId": {
+          ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid'])"
+        }
+      }
+    },
     "brews": {
       ".read": "(auth != null)",
+      ".write": "(auth != null)",
       "$brewId": {
-        ".write": "(auth != null)",
-        ".validate": "(newData.hasChildren(['brewTime','type','completedDate']))"
-      },
-      ".indexOn": ["uid"]
+        ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid', 'displayName', 'photoURL'])"
+      }
     }
   }
 }
