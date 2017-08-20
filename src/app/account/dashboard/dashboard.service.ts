@@ -23,10 +23,8 @@ export class DashboardService {
   getBrews(): FirebaseListObservable<Brew[]> {
       return this.getUser()
         .map(user => user.uid)
-        .switchMap(uid => this.db.list('/brews', {
+        .switchMap(uid => this.db.list(`/user-brews/${uid}`, {
           query: {
-            orderByChild: 'uid',
-            equalTo: uid,
             limitToLast: 10
           }
         })) as FirebaseListObservable<Brew[]>;
