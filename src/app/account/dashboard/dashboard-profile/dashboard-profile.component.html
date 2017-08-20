@@ -1,3 +1,13 @@
-<p>
-  dashboard-profile works!
-</p>
+<div class="profile" *ngIf="user; else loading;" fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
+  <div fxFlex="25%" fxFlex.xs="50%">
+    <img class="img-responsive profile__photo" [src]="user.photoURL" [alt]="user.displayName" />
+  </div>
+  <div fxFlex="75%" fxFlex.xs="100%">
+    <md-list>
+      <md-list-item><strong>Display Name:</strong>{{user.displayName}}</md-list-item>
+      <md-list-item><strong>Email:</strong>{{user.email}}</md-list-item>
+    </md-list>
+  </div>
+</div>
+
+<ng-template #loading>Loading...</ng-template>

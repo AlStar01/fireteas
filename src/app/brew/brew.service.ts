@@ -27,9 +27,9 @@ export class BrewService {
   addBrew(brew: Brew) {
     this.authService.user
       .take(1)
-      .subscribe(auth => {
-        if (auth) {
-          const { uid, displayName } = auth;
+      .subscribe(user => {
+        if (user) {
+          const { uid, displayName } = user;
 
           const { brewTime, type } = brew;
           const completedDate = Firebase.database.ServerValue.TIMESTAMP;

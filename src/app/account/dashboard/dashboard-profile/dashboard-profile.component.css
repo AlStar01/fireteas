@@ -1,0 +1,14 @@
+md-list .mat-subheader {
+  color: rgba(0,0,0,.54);
+}
+
+md-list strong {
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 599px) {
+  .profile__photo {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
