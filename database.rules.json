@@ -13,7 +13,8 @@
       "$brewId": {
         ".write": "(auth != null)",
         ".validate": "(newData.hasChildren(['brewTime','type','completedDate']))"
-      }
+      },
+      ".indexOn": ["uid"]
     }
   }
 }
