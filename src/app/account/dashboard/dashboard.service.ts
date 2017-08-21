@@ -11,7 +11,6 @@ import { Brew } from '../../shared/models/brew';
 
 @Injectable()
 export class DashboardService {
-
   constructor(
     private db: AngularFireDatabase,
     private authService: AuthService) { }
@@ -20,11 +19,12 @@ export class DashboardService {
     return this.authService.user.take(1);
   }
 
-  getBrews(): FirebaseListObservable<Brew[]> {
+  getBrews(limitToLast: number): FirebaseListObservable<Brew[]> {
       return this.getUser()
         .map(user => user.uid)
         .switchMap(uid => this.db.list(`/user-brews/${uid}`, {
           query: {
+            orderByKey: true,
             limitToLast: 10
           }
         })) as FirebaseListObservable<Brew[]>;

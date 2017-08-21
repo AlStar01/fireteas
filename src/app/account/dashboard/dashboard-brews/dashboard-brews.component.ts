@@ -11,6 +11,8 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./dashboard-brews.component.css']
 })
 export class DashboardBrewsComponent implements OnInit {
+  limitToLast = 10;
+
   brews$: FirebaseListObservable<Brew[]>;
 
   constructor(private dashboardService: DashboardService) { }
@@ -20,6 +22,6 @@ export class DashboardBrewsComponent implements OnInit {
   }
 
   private getBrews() {
-    this.brews$ = this.dashboardService.getBrews();
+    this.brews$ = this.dashboardService.getBrews(this.limitToLast);
   }
 }

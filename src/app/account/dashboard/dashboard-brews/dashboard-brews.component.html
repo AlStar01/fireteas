@@ -1,1 +1,14 @@
-{{brews$ | async | json}}
+<h2>Recent brews</h2>
+
+<md-list *ngIf="(brews$ | async); else loading;">
+  <md-list-item *ngFor="let brew of brews$ | async">
+    <h3 md-line>{{ brew.type | titlecase }}</h3>
+    <p md-line>
+      <span>{{ brew.completedDate | date:'short' }}</span>
+    </p>
+  </md-list-item>
+</md-list>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
