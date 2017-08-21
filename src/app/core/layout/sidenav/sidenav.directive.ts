@@ -3,6 +3,8 @@ import { MdSidenav } from '@angular/material';
 
 import { SidenavService } from './sidenav.service';
 
+type MdSidenavMode = 'over' | 'push' | 'side';
+
 @Directive({
   selector: '[appSidenav]'
 })
@@ -12,6 +14,32 @@ export class SidenavDirective implements OnInit {
   constructor(private sidenavService: SidenavService) { }
 
   ngOnInit(): void {
-    this.sidenavService.sidenavToggled$.subscribe(action => this.appSidenav[action]());
+    this.sidenavService.sidenavToggled$
+      .subscribe(action => {
+        if (action === 'close' && this.canClose()) {
+          this.appSidenav.close();
+        } else if (action === 'open' && this.canOpen()) {
+          this.appSidenav.open();
+        }
+      });
+
+    this.sidenavService.sidenavModeChanged$
+      .subscribe((mode: MdSidenavMode) => {
+        this.appSidenav.mode = mode;
+
+        if (mode === 'side') {
+          this.sidenavService.open();
+        } else {
+          this.sidenavService.close();
+        }
+      });
+  }
+
+  private canClose(): boolean {
+    return (this.appSidenav.mode === 'over') && (this.appSidenav.opened);
+  }
+
+  private canOpen(): boolean {
+    return !this.appSidenav.opened;
   }
 }
