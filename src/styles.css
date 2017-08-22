@@ -27,10 +27,21 @@ main {
     height: 100%;
 }
 
+@media screen and (min-width: 960px) {
+  main {
+    margin-top: 64px;
+  }
+}
+
 .content {
   padding: 24px;
 }
 
+@media screen and (min-width: 960px) {
+  .sidenav {
+    margin-top: 64px;
+  }
+}
 .auto-spacer {
   flex: 1 1 auto;
 }

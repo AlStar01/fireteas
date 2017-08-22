@@ -1,3 +1,5 @@
+<header appHeader></header>
+
 <md-sidenav-container class="container mat-typography" fxFlexFill>
   <md-sidenav #sidenav class="sidenav" [appSidenav]="sidenav">
     <app-navigation></app-navigation>
@@ -5,7 +7,6 @@
 
 
   <div fxFlex fxLayout="column">
-    <header appHeader></header>
     <main>
       <router-outlet></router-outlet>
     </main>
