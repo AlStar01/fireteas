@@ -9,6 +9,9 @@ import { RouterModule } from '@angular/router';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+// Style
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Material
 import {
   MdToolbarModule, MdMenuModule,
@@ -37,6 +40,7 @@ const materialModukes = [
   imports: [
     CommonModule,
     RouterModule,
+    FlexLayoutModule,
     ...materialModukes
   ],
   exports: [
