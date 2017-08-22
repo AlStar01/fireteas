@@ -38,7 +38,7 @@ export class SidenavService {
   private getMode(mediaChange: MediaChange): string {
     const { mqAlias } = mediaChange;
 
-    if (mqAlias === 'md' || mqAlias === 'lg') {
+    if (mqAlias === 'md' || mqAlias === 'lg' || mqAlias === 'xl') {
       return 'side';
     } else {
       return 'over';
