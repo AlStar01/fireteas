@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/purple-green.css';
-
+@import 'styles/fireteas-app-theme.css';
 @import 'styles/material-overrides.css';
 @import 'styles/utilties.css';
 @import 'styles/buttons.css';
@@ -20,28 +19,23 @@ body {
 }
 
 pre {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 main {
-    height: 100%;
-}
-
-@media screen and (min-width: 960px) {
-  main {
-    margin-top: 64px;
-  }
+  height: 100%;
 }
 
 .content {
   padding: 24px;
 }
 
+.sidenav {
+  margin-top: 56px;
+}
+
 @media screen and (min-width: 960px) {
   .sidenav {
     margin-top: 64px;
   }
-}
-.auto-spacer {
-  flex: 1 1 auto;
 }

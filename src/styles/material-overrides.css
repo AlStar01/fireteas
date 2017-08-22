@@ -1,31 +1,7 @@
-/* Menu */
-
-.mat-menu-content {
-  background: #fff;
-}
-
-.mat-menu-item {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.mat-menu-item:focus:not([disabled]),
-.mat-menu-item:hover:not([disabled]) {
-  background: rgba(0, 0, 0, .04);
-}
-
-
 /* Sidenav */
-
-md-sidenav-container,
-.mat-sidenav-container {
-  background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.87);
-}
 
 md-sidenav,
 .mat-sidenav {
-  background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.87);
   width: 250px;
 }
 
@@ -34,49 +10,14 @@ md-sidenav,
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* List */
+/* Content */
 
-.mat-list .mat-list-item,
-.mat-nav-list .mat-list-item,
-.mat-list .mat-list-item .mat-list-item-content,
-.mat-nav-list .mat-list-item .mat-list-item-content {
-  color: rgba(0, 0, 0, 0.87);
+.mat-sidenav-content {
+  margin-top: 56px;
 }
 
-.mat-nav-list .mat-list-item.mat-list-item-focus,
-.mat-nav-list .mat-list-item:hover {
-  background: rgba(0, 0, 0, .04);
-}
-
-.mat-divider {
-  border-top-color: rgba(0, 0, 0, .12);
-}
-
-
-/* Card */
-
-.mat-card {
-  background: #fff;
-  color: rgba(0, 0, 0, .87);
-}
-
-.mat-card-subtitle {
-  color: rgba(0, 0, 0, .54);
-}
-
-
-/* Tabs */
-
-md-ink-bar,
-.mat-ink-bar {
-  background-color: #69f0ae;
-}
-
-
-/* Button */
-
-.mat-fab.mat-secondary,
-.mat-mini-fab.mat-secondary,
-.mat-raised-button.mat-secondary {
-  color: rgba(255, 255, 255, .87);
+@media screen and (min-width: 960px) {
+  .mat-sidenav-content {
+    margin-top: 64px;
+  }
 }
