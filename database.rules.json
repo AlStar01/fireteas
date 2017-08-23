@@ -10,7 +10,7 @@
     },
     "user-brews": {
       "$uid": {
-        ".read": "(auth != null)",
+        ".read": "(auth != null) && ($uid === auth.uid)",
         ".write": "(auth != null) && ($uid === auth.uid)",
         "$brewId": {
           ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid'])"
@@ -18,9 +18,9 @@
       }
     },
     "brews": {
-      ".read": "(auth != null)",
-      ".write": "(auth != null)",
       "$brewId": {
+        ".read": "(auth != null)",
+        ".write": "(auth != null)",
         ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid', 'displayName', 'photoURL'])"
       }
     }
