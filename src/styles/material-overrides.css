@@ -13,11 +13,11 @@ md-sidenav,
 /* Content */
 
 .mat-sidenav-content {
-  margin-top: 56px;
+  padding-top: 56px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .mat-sidenav-content {
-    margin-top: 64px;
+    padding-top: 64px;
   }
 }

@@ -1,7 +1,7 @@
 <h2>Profile</h2>
 
 <div class="profile" *ngIf="user; else loading;" fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px">
-  <div fxFlex="25%" fxFlex.xs="50%">
+  <div fxFlex="175px" fxFlex.xs="100%">
     <img class="img-responsive profile__photo" [src]="user.photoURL" [alt]="user.displayName" />
   </div>
   <div fxFlex="75%" fxFlex.xs="100%">

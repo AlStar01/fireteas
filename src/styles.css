@@ -34,7 +34,7 @@ main {
   margin-top: 56px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .sidenav {
     margin-top: 64px;
   }

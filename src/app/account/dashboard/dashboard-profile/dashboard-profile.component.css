@@ -6,9 +6,13 @@ md-list strong {
   margin-right: 0.5rem;
 }
 
+.profile__photo {
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 599px) {
   .profile__photo {
-    max-width: 50%;
+    max-width: 150px;
     margin: 0 auto;
   }
 }
