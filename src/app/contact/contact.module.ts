@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactComponent } from './src/app/contact/contact/contact.component';
+
+import { SharedModule } from '../shared/shared.module';
+
+import { ContactComponent } from './contact.component';
+import { ContactRoutingModule } from './contact-routing.module';
+import { ContactService } from './contact.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    ContactRoutingModule
   ],
-  declarations: [ContactComponent]
+  declarations: [ContactComponent],
+  providers: [ContactService]
 })
 export class ContactModule { }

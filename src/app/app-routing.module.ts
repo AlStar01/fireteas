@@ -11,6 +11,7 @@ const appRoutes: Routes = [
   { path: 'login', loadChildren: 'app/account/login/login.module#LoginModule' },
   { path: 'sign-up', loadChildren: 'app/account/sign-up/sign-up.module#SignUpModule' },
   { path: 'account', loadChildren: 'app/account/dashboard/dashboard.module#DashboardModule' },
+  { path: 'contact', loadChildren: 'app/contact/contact.module#ContactModule' },
   { path: 'about', component: AboutComponent },
   { path: 'code-of-conduct', component: CodeOfConductComponent },
   { path: '', redirectTo: '/teas', pathMatch: 'full' },
