@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Style
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,7 +17,8 @@ import {
   MdGridListModule,
   MdProgressSpinnerModule,
   MdCardModule,
-  MdTabsModule } from '@angular/material';
+  MdTabsModule,
+  MdInputModule } from '@angular/material';
 
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
@@ -30,7 +32,8 @@ const materialModules = [
   MdMenuModule,
   MdProgressSpinnerModule,
   MdCardModule,
-  MdTabsModule
+  MdTabsModule,
+  MdInputModule
 ];
 
 @NgModule({
@@ -43,6 +46,7 @@ const materialModules = [
   exports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     ...materialModules,
     BlinkDirective
