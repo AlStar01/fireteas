@@ -33,6 +33,18 @@ export class SidenavDirective implements OnInit {
           this.sidenavService.close();
         }
       });
+
+    this.initSidenav();
+  }
+
+  private initSidenav(): void {
+    if (window.innerWidth >= 960) {
+      this.appSidenav.mode = 'side';
+      this.appSidenav.open();
+    } else {
+      this.appSidenav.mode = 'over';
+      this.appSidenav.close();
+    }
   }
 
   private canClose(): boolean {

@@ -2,14 +2,13 @@ import { Injectable, OnInit } from '@angular/core';
 import { Router, NavigationStart, Event } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
 @Injectable()
 export class SidenavService {
   private sidenavToggledSource = new Subject<string>();
-  private sidenavModeChangedSource = new ReplaySubject<string>(1);
+  private sidenavModeChangedSource = new Subject<string>();
 
   sidenavToggled$ = this.sidenavToggledSource.asObservable();
   sidenavModeChanged$ = this.sidenavModeChangedSource.asObservable();
@@ -38,7 +37,7 @@ export class SidenavService {
   private getMode(mediaChange: MediaChange): string {
     const { mqAlias } = mediaChange;
 
-    if (mqAlias === 'md' || mqAlias === 'lg' || mqAlias === 'xl') {
+    if (this.media.isActive('gt-sm')) {
       return 'side';
     } else {
       return 'over';
