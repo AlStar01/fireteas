@@ -39,7 +39,6 @@ const materialModules = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
     FlexLayoutModule,
     ...materialModules
   ],
