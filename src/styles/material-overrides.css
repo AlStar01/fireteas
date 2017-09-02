@@ -17,7 +17,7 @@ md-sidenav,
 }
 
 @media screen and (min-width: 600px) {
-  .mat-sidenav-content {
+  .mat-drawer-content {
     padding-top: 64px;
   }
 }
