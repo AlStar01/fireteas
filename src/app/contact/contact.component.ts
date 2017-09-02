@@ -25,10 +25,12 @@ export class ContactComponent {
     this.contactService.sendContact(this.contactForm.value)
       .subscribe(
         res => {
-          this.snackBar.open('☕ Message sent. Thanks! ☕');
+          this.contactService.openSnackBar('☕ Message sent. Thanks! ☕');
           this.submitted = true;
         },
-        error => this.snackBar.open('⚠️ Error sending message! Please try again. ⚠️')
+        error => {
+          this.contactService.openSnackBar('⚠️ Error sending message! Please try again. ⚠️');
+        }
       );
 
   }
