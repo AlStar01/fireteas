@@ -18,20 +18,22 @@
 
     <div fxLayout="column">
       <md-input-container>
-        <input mdInput formControlName="subject" placeholder="Subject">
+        <input mdInput #subject formControlName="subject" placeholder="Subject">
         <md-error>This field is required</md-error>
+        <md-hint align="end">{{subject.value.length}} / 256</md-hint>
       </md-input-container>
       <br />
       <md-input-container>
-        <textarea mdInput mdTextareaAutosize formControlName="message" placeholder="Message"></textarea>
+        <textarea mdInput mdTextareaAutosize #message formControlName="message" placeholder="Message"></textarea>
         <md-error>This field is required</md-error>
+        <md-hint align="end">{{message.value.length}} / 1000</md-hint>
       </md-input-container>
     </div>
 
     <br />
 
     <div>
-      <button type="submit" md-raised-button>Submit</button>
+      <button type="submit" md-raised-button [disabled]="contactForm.invalid">Submit</button>
     </div>
   </form>
 </div>
