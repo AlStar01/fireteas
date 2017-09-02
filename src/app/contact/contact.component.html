@@ -2,7 +2,7 @@
   <h2>Contact</h2>
   <p>Fill out the form below to get in touch with us. We'd love to hear from you!</p>
 
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="2px" class="form-row">
       <md-input-container>
         <input mdInput formControlName="name" placeholder="Name">
@@ -33,7 +33,7 @@
     <br />
 
     <div>
-      <button type="submit" md-raised-button [disabled]="contactForm.invalid">Submit</button>
+      <button type="submit" md-raised-button [disabled]="isDisabled()">Submit</button>
     </div>
   </form>
 </div>

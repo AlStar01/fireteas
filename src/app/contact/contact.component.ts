@@ -11,6 +11,7 @@ import { ContactService } from './contact.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  submitted = false;
   contactForm: FormGroup;
 
   constructor(
@@ -22,7 +23,18 @@ export class ContactComponent {
 
   onSubmit(): void {
     this.contactService.sendContact(this.contactForm.value)
-      .subscribe(res => this.snackBar.open('Message sent. Thanks!'));
+      .subscribe(
+        res => {
+          this.snackBar.open('☕ Message sent. Thanks! ☕');
+          this.submitted = true;
+        },
+        error => this.snackBar.open('⚠️ Error sending message! Please try again. ⚠️')
+      );
+
+  }
+
+  isDisabled(): boolean {
+    return this.contactForm.invalid || this.submitted;
   }
 
   private createForm(): void {
