@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 // Profile
 import { DashboardProfileComponent } from './dashboard-profile/dashboard-profile.component';
 import { DashboardProfileHomeComponent } from './dashboard-profile/dashboard-profile-home/dashboard-profile-home.component';
+import { DashboardProfileEditComponent } from './dashboard-profile/dashboard-profile-edit/dashboard-profile-edit.component';
 
 // Brews
 import { DashboardBrewsComponent } from './dashboard-brews/dashboard-brews.component';
@@ -26,7 +27,8 @@ const dashboardRoutes: Routes = [
             path: 'profile',
             component: DashboardProfileComponent,
             children: [
-              { path: '', component: DashboardProfileHomeComponent }
+              { path: '', component: DashboardProfileHomeComponent },
+              { path: 'edit', component: DashboardProfileEditComponent }
             ]
           },
           { path: 'brews', component: DashboardBrewsComponent },
