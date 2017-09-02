@@ -8,15 +8,6 @@ import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard-profile',
-  templateUrl: './dashboard-profile.component.html',
-  styleUrls: ['./dashboard-profile.component.css']
+  template: '<router-outlet></router-outlet>'
 })
-export class DashboardProfileComponent implements OnInit {
-  user: Firebase.User;
-
-  constructor(private dashboardService: DashboardService) { }
-
-  ngOnInit() {
-    this.dashboardService.getUser().subscribe(user => this.user = user);
-  }
-}
+export class DashboardProfileComponent {}

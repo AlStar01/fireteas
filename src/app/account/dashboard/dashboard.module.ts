@@ -9,6 +9,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardProfileComponent } from './dashboard-profile/dashboard-profile.component';
+import { DashboardProfileHomeComponent } from './dashboard-profile/dashboard-profile-home/dashboard-profile-home.component';
 import { DashboardBrewsComponent } from './dashboard-brews/dashboard-brews.component';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DashboardBrewsComponent } from './dashboard-brews/dashboard-brews.compo
   declarations: [
     DashboardComponent,
     DashboardProfileComponent,
+    DashboardProfileHomeComponent,
     DashboardBrewsComponent
   ],
   providers: [DashboardService]
