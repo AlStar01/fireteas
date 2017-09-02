@@ -19,7 +19,7 @@
     routerLink="/sign-up">SIGN UP</button>
 
   <md-menu #appMenu="mdMenu">
-    <button md-menu-item routerLink="/account">My Account</button>
+    <button md-menu-item routerLink="/account/profile">My Account</button>
     <button md-menu-item (click)="logout()">Logout</button>
   </md-menu>
   <img [mdMenuTriggerFor]="appMenu" class="user-pic" *ngIf="(authService.user | async)?.photoURL" [src]="(authService.user | async)?.photoURL" />
