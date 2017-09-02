@@ -1,9 +1,30 @@
-<p>
-  dashboard-profile-edit works!
-</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <md-input-container>
+    <input mdInput #username formControlName="username" placeholder="Username">
+    <md-error>Maximum length of 64 characters exceeded</md-error>
+    <md-hint align="end">{{username.value.length}} / 64</md-hint>
+  </md-input-container>
+  <md-input-container>
+    <textarea mdInput mdTextareaAutosize #bio formControlName="bio" placeholder="Bio"></textarea>
+    <md-error>Maximum length of 100 characters exceeded</md-error>
+    <md-hint align="end">{{bio.value.length}} / 1000</md-hint>
+  </md-input-container>
+
+  <br />
+
+  <md-input-container>
+    <input mdInput formControlName="websiteUrl" placeholder="Website URL">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput formControlName="facebookUrl" placeholder="Facebook URL">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput formControlName="twitterUrl" placeholder="Twitter URL">
+  </md-input-container>
+</form>
 
 <br />
 
 <div>
-  <a md-raised-button [routerLink]="['../']">Back</a>
+  <a md-raised-button [routerLink]="['../']">Cancel</a>
 </div>
