@@ -39,7 +39,7 @@ export class DashboardService {
   }
 
   private getDbUser = (user: Firebase.User): FirebaseObjectObservable<User> => {
-    return this.db.object(`/users/${user.uid}`);
+    return this.db.object(`/users/${user.uid}`).take(1) as FirebaseObjectObservable<User>;
   }
 
   private getMergedUser = (authUser: Firebase.User, dbUser: User): User => {
