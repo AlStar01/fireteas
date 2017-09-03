@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-
-import * as Firebase from 'firebase/app';
-
 import { DashboardService } from '../../dashboard.service';
+
+import { User } from '../../../../shared/models/user';
 
 @Component({
   selector: 'app-dashboard-profile-home',
@@ -12,7 +10,7 @@ import { DashboardService } from '../../dashboard.service';
   styleUrls: ['./dashboard-profile-home.component.css']
 })
 export class DashboardProfileHomeComponent implements OnInit {
-  user: Firebase.User;
+  user: User;
 
   constructor(private dashboardService: DashboardService) { }
 

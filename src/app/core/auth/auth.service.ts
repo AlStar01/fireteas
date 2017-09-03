@@ -16,6 +16,10 @@ export class AuthService {
     this.user = afAuth.authState;
   }
 
+  getUser(): Observable<Firebase.User> {
+    return this.user.take(1);
+  }
+
   isLoggedIn(redirectUrl: string): Observable<boolean> {
     return this.afAuth.authState
       .take(1)

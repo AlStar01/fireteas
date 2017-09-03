@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { DashboardService } from '../../dashboard.service';
+
 @Component({
   selector: 'app-dashboard-profile-edit',
   templateUrl: './dashboard-profile-edit.component.html',
@@ -10,23 +12,22 @@ import { Router } from '@angular/router';
 export class DashboardProfileEditComponent implements OnInit {
   profileForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private dashboardService: DashboardService) {
     this.createForm();
   }
+
+  ngOnInit() { }
 
   onSubmit(): void {}
 
   private createForm(): void {
     this.profileForm = this.fb.group({
-      username: ['', [Validators.maxLength(64)]],
-      bio: ['', [Validators.maxLength(1000)]],
-      websiteUrl: ['', [Validators.maxLength(256)]],
-      facebookUrl: ['', [Validators.maxLength(256)]],
-      twitterUrl: ['', [Validators.maxLength(256)]]
+      displayName: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]],
+      bio: ['', [Validators.maxLength(1000)]]
     });
   }
-
-  ngOnInit() {
-  }
-
 }
