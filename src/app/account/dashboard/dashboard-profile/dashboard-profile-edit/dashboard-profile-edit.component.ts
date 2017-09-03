@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { DashboardService } from '../../dashboard.service';
+import { User } from '../../../../shared/models/user';
 
 @Component({
   selector: 'app-dashboard-profile-edit',
@@ -10,6 +11,7 @@ import { DashboardService } from '../../dashboard.service';
   styleUrls: ['./dashboard-profile-edit.component.css']
 })
 export class DashboardProfileEditComponent implements OnInit {
+  user: User;
   profileForm: FormGroup;
 
   constructor(
@@ -19,7 +21,12 @@ export class DashboardProfileEditComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.dashboardService.getUser().subscribe(user => {
+      this.user = user;
+      this.updateForm();
+    });
+  }
 
   onSubmit(): void {}
 
@@ -27,7 +34,15 @@ export class DashboardProfileEditComponent implements OnInit {
     this.profileForm = this.fb.group({
       displayName: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
-      bio: ['', [Validators.maxLength(1000)]]
+      story: ['', [Validators.maxLength(1000)]]
+    });
+  }
+
+  private updateForm(): void {
+    this.profileForm.setValue({
+      displayName: this.user.displayName,
+      email: this.user.email,
+      story: this.user.story
     });
   }
 }
