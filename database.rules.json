@@ -13,7 +13,7 @@
         ".read": "(auth != null) && ($uid === auth.uid)",
         ".write": "(auth != null) && ($uid === auth.uid)",
         "$brewId": {
-          ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid'])"
+          ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid', 'displayName', 'photoURL'])"
         }
       }
     },
