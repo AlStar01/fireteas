@@ -28,7 +28,14 @@ export class DashboardProfileEditComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    const user: User = { ...this.user, ...this.profileForm.value };
+    this.dashboardService.updateUser(user).subscribe(() => this.router.navigate(['/account/profile']));
+  }
+
+  isDisabled(): boolean {
+    return this.profileForm.invalid;
+  }
 
   private createForm(): void {
     this.profileForm = this.fb.group({
@@ -42,7 +49,7 @@ export class DashboardProfileEditComponent implements OnInit {
     this.profileForm.setValue({
       displayName: this.user.displayName,
       email: this.user.email,
-      story: this.user.story
+      story: this.user.story || ''
     });
   }
 }

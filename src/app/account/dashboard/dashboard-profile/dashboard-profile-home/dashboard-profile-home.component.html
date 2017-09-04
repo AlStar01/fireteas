@@ -4,8 +4,15 @@
   </div>
   <div fxFlex="75%" fxFlex.xs="100%">
     <md-list>
-      <md-list-item><strong>Display Name:</strong>{{user.displayName}}</md-list-item>
-      <md-list-item><strong>Email:</strong>{{user.email}}</md-list-item>
+      <md-list-item>
+        <strong>Display Name:</strong> {{user.displayName}}
+      </md-list-item>
+      <md-list-item>
+        <strong>Email:</strong> {{user.email}}
+      </md-list-item>
+      <md-list-item *ngIf="user.story">
+        <strong>Story:</strong> {{user.story}}
+      </md-list-item>
     </md-list>
   </div>
 </div>
