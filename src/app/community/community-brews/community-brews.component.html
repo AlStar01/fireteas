@@ -1,3 +1,9 @@
-<p>
-  community-brews works!
-</p>
+<md-list>
+    <md-list-item *ngFor="let brew of brews | async">
+        <img mdListAvatar [src]="brew.photoURL" [alt]="brew.type" />
+        <h3 mdLine>{{ brew.displayName }}</h3>
+        <p mdLine>
+          <span>{{ brew.type | titlecase }} tea</span> - <span>{{ brew.completedDate | date:'short' }}</span>
+        </p>
+    </md-list-item>
+</md-list>

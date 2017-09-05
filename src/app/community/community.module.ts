@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CommunityRoutingModule } from './community-routing.module';
 import { CommunityComponent } from './community.component';
 import { CommunityBrewsComponent } from './community-brews/community-brews.component';
+import { CommunityService } from './community.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { CommunityBrewsComponent } from './community-brews/community-brews.compo
   declarations: [
     CommunityComponent,
     CommunityBrewsComponent
-  ]
+  ],
+  providers: [CommunityService]
 })
 export class CommunityModule { }

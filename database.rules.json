@@ -18,8 +18,8 @@
       }
     },
     "brews": {
+      ".read": "(auth != null)",
       "$brewId": {
-        ".read": "(auth != null)",
         ".write": "(auth != null)",
         ".validate": "newData.hasChildren(['brewTime', 'completedDate','type', 'uid', 'displayName', 'photoURL'])"
       }
