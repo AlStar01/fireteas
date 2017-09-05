@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
 import { MdSnackBar } from '@angular/material';
 
@@ -11,7 +11,7 @@ import { ContactService } from './contact.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  submitted = false;
+  @ViewChild(FormGroupDirective) form;
   contactForm: FormGroup;
 
   constructor(
@@ -26,17 +26,16 @@ export class ContactComponent {
       .subscribe(
         res => {
           this.contactService.openSnackBar('☕ Message sent. Thanks! ☕');
-          this.submitted = true;
+          this.resetForm();
         },
         error => {
           this.contactService.openSnackBar('⚠️ Error sending message! Please try again. ⚠️');
         }
       );
-
   }
 
   isDisabled(): boolean {
-    return this.contactForm.invalid || this.submitted;
+    return this.contactForm.invalid;
   }
 
   private createForm(): void {
@@ -46,5 +45,13 @@ export class ContactComponent {
       subject: ['', [Validators.required, Validators.maxLength(128)]],
       message: ['', [Validators.required, Validators.maxLength(1000)]]
     });
+  }
+
+  private resetForm(): void {
+    this.contactForm.reset();
+
+    if (this.form) {
+      this.form.resetForm();
+    }
   }
 }
