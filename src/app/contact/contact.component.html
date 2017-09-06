@@ -6,11 +6,13 @@
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="2px" class="form-row">
       <md-input-container>
         <input mdInput formControlName="name" placeholder="Name">
-        <md-error>This field is required</md-error>
+        <md-error *ngIf="hasError('name', 'required')">This field is required</md-error>
+        <md-error *ngIf="hasError('name', 'maxlength')">Maximum of 128 characters allowed</md-error>
       </md-input-container>
       <md-input-container>
         <input mdInput formControlName="email" placeholder="Email">
-        <md-error>This field is required</md-error>
+        <md-error *ngIf="hasError('email', 'required')">This field is required</md-error>
+        <md-error *ngIf="hasError('email', 'email')">Must be valid email address</md-error>
       </md-input-container>
     </div>
 
@@ -19,14 +21,16 @@
     <div fxLayout="column">
       <md-input-container>
         <input mdInput #subject formControlName="subject" placeholder="Subject">
-        <md-error>This field is required</md-error>
-        <md-hint align="end">{{subject.value.length}} / 256</md-hint>
+        <md-error *ngIf="hasError('subject', 'required')">This field is required</md-error>
+        <md-error *ngIf="hasError('subject', 'maxlength')">Maximum of 128 characters allowed</md-error>
+        <md-hint align="end">{{subject.value.length || 0}} / 128</md-hint>
       </md-input-container>
       <br />
       <md-input-container>
         <textarea mdInput mdTextareaAutosize #message formControlName="message" placeholder="Message"></textarea>
-        <md-error>This field is required</md-error>
-        <md-hint align="end">{{message.value.length}} / 1000</md-hint>
+        <md-error *ngIf="hasError('message', 'required')">This field is required</md-error>
+        <md-error *ngIf="hasError('message', 'maxlength')">Maximum of 1000 characters allowed</md-error>
+        <md-hint align="end">{{message.value.length || 0}} / 1000</md-hint>
       </md-input-container>
     </div>
 

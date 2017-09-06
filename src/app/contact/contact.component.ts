@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup, AbstractControl, Validators, FormGroupDirective } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -25,6 +25,11 @@ export class ContactComponent {
     this.createForm();
   }
 
+  hasError(key: string, error: string): boolean {
+    const control = this.contactForm.get(key);
+    return this.isInvalid(control) && control.errors[error];
+  }
+
   onSubmit(): void {
     this.contactService.sendContact(this.contactForm.value)
       .subscribe(
@@ -36,6 +41,10 @@ export class ContactComponent {
           this.contactService.openSnackBar('⚠️ Error sending message! Please try again. ⚠️');
         }
       );
+  }
+
+  isInvalid(control: AbstractControl) {
+    return control.invalid && (control.dirty || control.touched);
   }
 
   isDisabled(): boolean {
