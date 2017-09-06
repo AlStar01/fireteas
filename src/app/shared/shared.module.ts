@@ -19,7 +19,8 @@ import {
   MdCardModule,
   MdTabsModule,
   MdInputModule,
-  MdSnackBarModule } from '@angular/material';
+  MdSnackBarModule,
+  MdDialogModule } from '@angular/material';
 
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
@@ -35,7 +36,8 @@ const materialModules = [
   MdCardModule,
   MdTabsModule,
   MdInputModule,
-  MdSnackBarModule
+  MdSnackBarModule,
+  MdDialogModule
 ];
 
 @NgModule({

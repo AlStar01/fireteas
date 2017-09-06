@@ -22,6 +22,9 @@ import {
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
+// Guards
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
+
 // Layout
 import { SidenavService } from './layout/sidenav/sidenav.service';
 import { SidenavDirective } from './layout/sidenav/sidenav.directive';
@@ -54,6 +57,7 @@ const materialModukes = [
   providers: [
     AuthService,
     AuthGuard,
+    CanDeactivateGuard,
     SidenavService
   ],
   declarations: [

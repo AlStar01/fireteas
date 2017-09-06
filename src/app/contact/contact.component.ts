@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 
-import { MdSnackBar } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
+
+import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 
 import { ContactService } from './contact.service';
+import { ContactDialogComponent } from './contact-dialog.component';
 
 @Component({
   selector: 'app-contact',
@@ -17,6 +20,7 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
+    private dialog: MdDialog,
     private snackBar: MdSnackBar) {
     this.createForm();
   }
@@ -36,6 +40,20 @@ export class ContactComponent {
 
   isDisabled(): boolean {
     return this.contactForm.invalid;
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    const hasChanged: boolean = Object.keys(this.contactForm.controls).some(key => this.contactForm.get(key).value !== '');
+
+    return hasChanged ? this.openDialog() : true;
+  }
+
+  private openDialog(): Observable<boolean> {
+    const dialogRef = this.dialog.open(ContactDialogComponent, {
+      disableClose: true
+    });
+
+    return dialogRef.afterClosed();
   }
 
   private createForm(): void {
