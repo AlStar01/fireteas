@@ -9,4 +9,15 @@ export class AnalyticsService {
     ga('set', 'page', urlAfterRedirects);
     ga('send', 'pageview');
   }
+
+  sendEvent(eventCategory: string, eventAction: string, eventLabel: string) {
+    const hitType = 'event';
+
+    ga('send', {
+      hitType,
+      eventCategory,
+      eventAction,
+      eventLabel
+    });
+  }
 }

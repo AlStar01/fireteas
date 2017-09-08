@@ -5,6 +5,8 @@ import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 
 import { Observable } from 'rxjs/Observable';
 
+import { AnalyticsService } from '../core/meta/analytics.service';
+
 import { Contact } from './contact';
 
 @Injectable()
@@ -13,10 +15,14 @@ export class ContactService {
   'https://fireteas.azurewebsites.net/api/SendContactEmail' +
   '?code=R3nDxVWfcRmmGVW2/a0n4NBxfO9DgUuobkJstRFiTpMC5Sp0JRTfyg==';
 
-  constructor(private http: HttpClient, private snackBar: MdSnackBar) { }
+  constructor(
+    private http: HttpClient,
+    private snackBar: MdSnackBar,
+    private analyticsService: AnalyticsService) { }
 
   sendContact(contact: Contact): Observable<any> {
-    return this.http.post(this.contactUrl, contact);
+    return this.http.post(this.contactUrl, contact)
+      .finally(() => this.analyticsService.sendEvent('Contact', 'submit', contact.subject));
   }
 
   openSnackBar(message: string): void {
