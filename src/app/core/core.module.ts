@@ -32,6 +32,9 @@ import { HeaderComponent } from './layout/header/header.component';
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { ContainerComponent } from './layout/container/container.component';
 
+// Meta
+import { AnalyticsService } from './meta/analytics.service';
+
 const materialModules = [
   MdToolbarModule,
   MdMenuModule,
@@ -60,6 +63,7 @@ const materialModules = [
     AuthService,
     AuthGuard,
     CanDeactivateGuard,
+    AnalyticsService,
     SidenavService
   ],
   declarations: [

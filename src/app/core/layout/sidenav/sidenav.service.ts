@@ -1,9 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Router, NavigationStart, Event } from '@angular/router';
+import {
+  Router,
+  NavigationEnd,
+  Event } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
 
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { AnalyticsService } from '../../meta/analytics.service';
 
 @Injectable()
 export class SidenavService {
@@ -13,10 +17,16 @@ export class SidenavService {
   sidenavToggled$ = this.sidenavToggledSource.asObservable();
   sidenavModeChanged$ = this.sidenavModeChangedSource.asObservable();
 
-  constructor(private router: Router, private media: ObservableMedia) {
+  constructor(
+    private router: Router,
+    private media: ObservableMedia,
+    private analyticsService: AnalyticsService) {
     this.router.events
-      .filter(event => event instanceof NavigationStart)
-      .subscribe(event => this.sidenavToggledSource.next('close'));
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe((event: NavigationEnd) => {
+        this.analyticsService.sendPageView(event.urlAfterRedirects);
+        this.sidenavToggledSource.next('close');
+      });
 
     this.media.subscribe(mediaChange => this.setMode(mediaChange));
   }
