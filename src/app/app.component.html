@@ -1,15 +1,17 @@
-<header appHeader></header>
+<app-header></app-header>
 
-<md-sidenav-container class="container mat-typography" fxFlexFill>
-  <md-sidenav #sidenav class="sidenav" [appSidenav]="sidenav">
-    <app-navigation></app-navigation>
-  </md-sidenav>
+<div class="mat-typography container">
+    <md-sidenav-container>
+        <md-sidenav #sidenav class="sidenav" [appSidenav]="sidenav">
+          <app-navigation></app-navigation>
+        </md-sidenav>
 
 
-  <div fxFlex fxLayout="column">
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+        <div fxFlex fxLayout="column">
+          <main>
+            <router-outlet></router-outlet>
+          </main>
+        </div>
 
-</md-sidenav-container>
+      </md-sidenav-container>
+</div>

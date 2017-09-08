@@ -1,10 +1,3 @@
-/* Toolbar */
-
-.mat-toolbar {
-  -webkit-box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
-}
-
 /* Sidenav */
 
 md-sidenav,
@@ -23,16 +16,4 @@ md-sidenav,
 md-sidenav .mat-divider,
 .mat-sidenav .mat-divider {
   border-top-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Content */
-
-.mat-drawer-content {
-  padding-top: 56px;
-}
-
-@media screen and (min-width: 600px) {
-  .mat-drawer-content {
-    padding-top: 64px;
-  }
 }

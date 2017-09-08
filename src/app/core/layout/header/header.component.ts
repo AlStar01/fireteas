@@ -5,7 +5,7 @@ import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: '[appHeader]',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

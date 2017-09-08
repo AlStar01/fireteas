@@ -5,17 +5,9 @@
 @import 'styles/utilties.css';
 @import 'styles/buttons.css';
 
-html {
-  height: 100%;
-  width: 100%;
-}
-
 body {
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   margin: 0;
-  height: 100%;
-  width: 100%;
-  color: rgba(0, 0, 0, 0.87);
 }
 
 pre {
@@ -28,14 +20,4 @@ main {
 
 .content {
   padding: 24px;
-}
-
-.sidenav {
-  margin-top: 56px;
-}
-
-@media screen and (min-width: 600px) {
-  .sidenav {
-    margin-top: 64px;
-  }
 }

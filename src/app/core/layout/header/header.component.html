@@ -1,26 +1,28 @@
-<md-toolbar color="primary">
-  <button md-icon-button class="nav-button" (click)="openSidenav()" [fxHide.gt-sm]="true">
-    <md-icon>menu</md-icon>
-  </button>
-  <h1>Fireteas</h1>
-  <span class="auto-spacer"></span>
-  <button
-    *ngIf="!(authService.user | async)"
-    class="login"
-    type="button"
-    md-button
-    routerLink="/login">LOG IN</button>
-  <button
-    *ngIf="!(authService.user | async)"
-    class="sign-up"
-    type="button"
-    md-raised-button
-    color="accent"
-    routerLink="/sign-up">SIGN UP</button>
+<header class="mat-elevation-z2">
+  <md-toolbar color="primary">
+    <button md-icon-button class="nav-button" (click)="openSidenav()" [fxHide.gt-sm]="true">
+      <md-icon>menu</md-icon>
+    </button>
+    <h1>Fireteas</h1>
+    <span class="auto-spacer"></span>
+    <button
+      *ngIf="!(authService.user | async)"
+      class="login"
+      type="button"
+      md-button
+      routerLink="/login">LOG IN</button>
+    <button
+      *ngIf="!(authService.user | async)"
+      class="sign-up"
+      type="button"
+      md-raised-button
+      color="accent"
+      routerLink="/sign-up">SIGN UP</button>
 
-  <md-menu #appMenu="mdMenu">
-    <button md-menu-item routerLink="/account/profile">My Account</button>
-    <button md-menu-item (click)="logout()">Logout</button>
-  </md-menu>
-  <img [mdMenuTriggerFor]="appMenu" class="user-pic" *ngIf="(authService.user | async)?.photoURL" [src]="(authService.user | async)?.photoURL" />
-</md-toolbar>
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item routerLink="/account/profile">My Account</button>
+      <button md-menu-item (click)="logout()">Logout</button>
+    </md-menu>
+    <img [mdMenuTriggerFor]="appMenu" class="user-pic" *ngIf="(authService.user | async)?.photoURL" [src]="(authService.user | async)?.photoURL" />
+  </md-toolbar>
+</header>
