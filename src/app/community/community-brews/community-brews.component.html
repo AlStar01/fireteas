@@ -1,5 +1,7 @@
+<h2>Recent brews</h2>
+
 <md-list>
-    <md-list-item *ngFor="let brew of brews | async">
+    <md-list-item *ngFor="let brew of brews$ | async">
         <img mdListAvatar [src]="brew.photoURL" [alt]="brew.type" />
         <h3 mdLine>{{ brew.displayName }}</h3>
         <p mdLine>

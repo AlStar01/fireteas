@@ -11,9 +11,9 @@ export class CommunityService {
   getBrews(): FirebaseListObservable<Brew[]> {
     return this.db.list('/brews', {
       query: {
-        limitToLast: 25,
-        orderByKey: true
+        limitToLast: 25
       }
-    });
+    })
+    .map((brews: Brew[]) => brews.sort((a, b) => b.completedDate - a.completedDate)) as FirebaseListObservable<Brew[]>;
   }
 }

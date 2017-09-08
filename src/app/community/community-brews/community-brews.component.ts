@@ -11,11 +11,11 @@ import { Brew } from '../../shared/models/brew';
   styleUrls: ['./community-brews.component.css']
 })
 export class CommunityBrewsComponent implements OnInit {
-  brews: FirebaseListObservable<Brew[]>;
+  brews$: FirebaseListObservable<Brew[]>;
 
   constructor(private communityService: CommunityService) { }
 
   ngOnInit() {
-    this.brews = this.communityService.getBrews();
+    this.brews$ = this.communityService.getBrews();
   }
 }

@@ -45,10 +45,10 @@ export class DashboardService {
         .switchMap(uid =>
           this.db.list(`/user-brews/${uid}`, {
             query: {
-              orderByKey: true,
               limitToLast: 10
             }
-          })) as FirebaseListObservable<Brew[]>;
+          }))
+          .map((brews: Brew[]) => brews.sort((a, b) => b.completedDate - a.completedDate)) as FirebaseListObservable<Brew[]>;
   }
 
   private getAuthUser(): Observable<Firebase.User> {
@@ -56,7 +56,7 @@ export class DashboardService {
   }
 
   private getDbUser = (user: Firebase.User): FirebaseObjectObservable<User> => {
-    return this.db.object(`/users/${user.uid}`).take(1) as FirebaseObjectObservable<User>;
+    return this.db.object(`/users/${user.uid}`);
   }
 
   private getMergedUser = (authUser: Firebase.User, dbUser: User): User => ({ email: authUser.email, ...dbUser });
