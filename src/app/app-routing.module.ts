@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
-import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { CodeOfConductComponent } from './code-of-conduct/code-of-conduct.component';
 
 const appRoutes: Routes = [
   { path: 'teas', loadChildren: 'app/teas/teas.module#TeasModule' },
@@ -13,8 +11,6 @@ const appRoutes: Routes = [
   { path: 'account', loadChildren: 'app/account/dashboard/dashboard.module#DashboardModule' },
   { path: 'contact', loadChildren: 'app/contact/contact.module#ContactModule' },
   { path: 'community', loadChildren: 'app/community/community.module#CommunityModule' },
-  { path: 'about', component: AboutComponent },
-  { path: 'code-of-conduct', component: CodeOfConductComponent },
   { path: '', redirectTo: '/teas', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -18,23 +18,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { AboutComponent } from './about/about.component';
-import { CodeOfConductComponent } from './code-of-conduct/code-of-conduct.component';
+
+import { StaticModule } from './static/static.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    PageNotFoundComponent,
-    CodeOfConductComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule.forRoot(),
-    SharedModule,
+    StaticModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
