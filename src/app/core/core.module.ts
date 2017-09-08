@@ -16,7 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MdToolbarModule, MdMenuModule,
   MdButtonModule, MdIconModule,
-  MdListModule } from '@angular/material';
+  MdListModule, MdSidenavModule } from '@angular/material';
 
 // Auth
 import { AuthService } from './auth/auth.service';
@@ -30,13 +30,15 @@ import { SidenavService } from './layout/sidenav/sidenav.service';
 import { SidenavDirective } from './layout/sidenav/sidenav.directive';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavigationComponent } from './layout/navigation/navigation.component';
+import { ContainerComponent } from './layout/container/container.component';
 
-const materialModukes = [
+const materialModules = [
   MdToolbarModule,
   MdMenuModule,
   MdButtonModule,
   MdIconModule,
-  MdListModule
+  MdListModule,
+  MdSidenavModule
 ];
 
 @NgModule({
@@ -44,15 +46,15 @@ const materialModukes = [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    ...materialModukes
+    ...materialModules
   ],
   exports: [
     HttpClientModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    SidenavDirective,
     HeaderComponent,
-    NavigationComponent
+    NavigationComponent,
+    ContainerComponent
   ],
   providers: [
     AuthService,
@@ -63,7 +65,8 @@ const materialModukes = [
   declarations: [
     SidenavDirective,
     HeaderComponent,
-    NavigationComponent
+    NavigationComponent,
+    ContainerComponent
   ]
 })
 export class CoreModule {

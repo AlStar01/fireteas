@@ -1,0 +1,13 @@
+<md-sidenav-container>
+  <md-sidenav #sidenav class="sidenav" [appSidenav]="sidenav">
+    <app-navigation></app-navigation>
+  </md-sidenav>
+
+
+  <div fxFlex fxLayout="column">
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+</md-sidenav-container>
