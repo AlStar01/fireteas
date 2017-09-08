@@ -8,11 +8,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <style>
+    .app-loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    @media screen and (max-width: 768px) {
+      .app-loader {
+        background-color: #fff;
+      }
+    }
+
+    app-root:empty + .app-loader {
+      opacity: 1;
+      z-index: 100;
+    }
+  </style>
+
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
+
+  <div class="app-loader" id="content">
+    <div>Loading...</div>
+
+    <noscript>
+      <h4 style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";">
+        Sorry, JavaScript needs to be enabled in order to run this application.
+      </h4>
+    </noscript>
+  </div>
 
   <!-- Google Analytics -->
   <script>
