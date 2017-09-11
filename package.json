@@ -2,6 +2,8 @@
   "name": "fireteas",
   "version": "0.0.0",
   "license": "MIT",
+  "repository": "https://github.com/AlStar01/fireteas",
+  "author": "Alex Staroselsky <alstar01@users.noreply.github.com>",
   "scripts": {
     "ng": "ng",
     "prestart": "node-sass src/styles/scss/fireteas-app-theme.scss src/styles/fireteas-app-theme.css --importer node_modules/node-sass-import",
