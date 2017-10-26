@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, AbstractControl, Validators, FormGroupDirective
 
 import { Observable } from 'rxjs/Observable';
 
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 
 import { ContactService } from './contact.service';
 import { ContactDialogComponent } from './contact-dialog.component';
@@ -20,8 +20,8 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
-    private dialog: MdDialog,
-    private snackBar: MdSnackBar) {
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar) {
     this.createForm();
   }
 

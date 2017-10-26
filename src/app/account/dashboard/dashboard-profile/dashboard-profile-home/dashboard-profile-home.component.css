@@ -1,8 +1,8 @@
-md-list .mat-subheader {
+mat-list .mat-subheader {
   color: rgba(0,0,0,.54);
 }
 
-md-list strong {
+mat-list strong {
   margin-right: 0.5rem;
 }
 

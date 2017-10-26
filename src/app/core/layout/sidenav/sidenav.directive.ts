@@ -1,15 +1,15 @@
 import { Directive, Input, OnInit } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 import { SidenavService } from './sidenav.service';
 
-type MdSidenavMode = 'over' | 'push' | 'side';
+type MatSidenavMode = 'over' | 'push' | 'side';
 
 @Directive({
   selector: '[appSidenav]'
 })
 export class SidenavDirective implements OnInit {
-  @Input() appSidenav: MdSidenav;
+  @Input() appSidenav: MatSidenav;
 
   constructor(private sidenavService: SidenavService) { }
 
@@ -24,7 +24,7 @@ export class SidenavDirective implements OnInit {
       });
 
     this.sidenavService.sidenavModeChanged$
-      .subscribe((mode: MdSidenavMode) => {
+      .subscribe((mode: MatSidenavMode) => {
         this.appSidenav.mode = mode;
 
         if (mode === 'side') {

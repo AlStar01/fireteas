@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
-import { AngularFireAuth, FirebaseAuthStateObservable } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as Firebase from 'firebase/app';
 
 @Injectable()
@@ -33,11 +33,11 @@ export class AuthService {
       });
   }
 
-  login(): Firebase.Promise<Firebase.auth.UserCredential> {
+  login(): Promise<Firebase.auth.UserCredential> {
     return this.afAuth.auth.signInWithPopup(new Firebase.auth.GoogleAuthProvider());
   }
 
-  logout(): Firebase.Promise<void> {
+  logout(): Promise<boolean> {
     return this.afAuth.auth.signOut().then(() => this.router.navigate(['/login']));
   }
 }

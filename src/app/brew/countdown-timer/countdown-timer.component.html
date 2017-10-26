@@ -1,16 +1,16 @@
 <div class="countdown-timer">
     <div class="countdown-timer__time">
         <div class="countdown-timer__duration" [appBlink]="isEnding()">{{getDisplayTime(seconds)}}</div>
-        <md-progress-spinner
+        <mat-progress-spinner
             class="countdown-timer__spinner"
             [color]="getSpinnerColor()"
             [mode]="'determinate'"
             [value]="getSpinnerValue()"
-            [strokeWidth]="2"></md-progress-spinner>
+            [strokeWidth]="2"></mat-progress-spinner>
     </div>
 
     <div class="countdown-timer__actions">
-        <button *ngIf="isStartVisible()" type="button" (click)="start()" md-fab><md-icon>play_arrow</md-icon></button>
-        <button *ngIf="isRestartVisible()" type="button" (click)="reset()" md-fab><md-icon>refresh</md-icon></button>
+        <button *ngIf="isStartVisible()" type="button" (click)="start()" mat-fab><mat-icon>play_arrow</mat-icon></button>
+        <button *ngIf="isRestartVisible()" type="button" (click)="reset()" mat-fab><mat-icon>refresh</mat-icon></button>
     </div>
 </div>

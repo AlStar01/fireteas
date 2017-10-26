@@ -14,9 +14,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material
 import {
-  MdToolbarModule, MdMenuModule,
-  MdButtonModule, MdIconModule,
-  MdListModule, MdSidenavModule } from '@angular/material';
+  MatToolbarModule, MatMenuModule,
+  MatButtonModule, MatIconModule,
+  MatListModule, MatSidenavModule } from '@angular/material';
 
 // Auth
 import { AuthService } from './auth/auth.service';
@@ -36,12 +36,12 @@ import { ContainerComponent } from './layout/container/container.component';
 import { AnalyticsService } from './meta/analytics.service';
 
 const materialModules = [
-  MdToolbarModule,
-  MdMenuModule,
-  MdButtonModule,
-  MdIconModule,
-  MdListModule,
-  MdSidenavModule
+  MatToolbarModule,
+  MatMenuModule,
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule
 ];
 
 @NgModule({

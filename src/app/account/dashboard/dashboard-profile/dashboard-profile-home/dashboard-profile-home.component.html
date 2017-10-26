@@ -3,17 +3,17 @@
     <img class="img-responsive profile__photo" [src]="user.photoURL" [alt]="user.displayName" />
   </div>
   <div fxFlex="75%" fxFlex.xs="100%">
-    <md-list>
-      <md-list-item>
+    <mat-list>
+      <mat-list-item>
         <strong>Display Name:</strong> {{user.displayName}}
-      </md-list-item>
-      <md-list-item>
+      </mat-list-item>
+      <mat-list-item>
         <strong>Email:</strong> {{user.email}}
-      </md-list-item>
-      <md-list-item *ngIf="user.story">
+      </mat-list-item>
+      <mat-list-item *ngIf="user.story">
         <strong>Story:</strong> {{user.story}}
-      </md-list-item>
-    </md-list>
+      </mat-list-item>
+    </mat-list>
   </div>
 </div>
 
@@ -25,5 +25,5 @@
 <br />
 
 <div>
-  <a md-raised-button routerLink="edit">Edit profile</a>
+  <a mat-raised-button routerLink="edit">Edit profile</a>
 </div>

@@ -3,9 +3,9 @@
 
   <p>Select a tea to learn more.</p>
 
-  <md-nav-list>
-    <a md-list-item [routerLink]="['/teas', tea.type]" *ngFor="let tea of teas">
+  <mat-nav-list>
+    <a mat-list-item [routerLink]="['/teas', tea.type]" *ngFor="let tea of teas">
       {{tea.type | uppercase}}
     </a>
-  </md-nav-list>
+  </mat-nav-list>
 </div>

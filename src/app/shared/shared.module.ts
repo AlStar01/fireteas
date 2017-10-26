@@ -8,36 +8,36 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material Modules
 import {
-  MdSidenavModule,
-  MdToolbarModule,
-  MdIconModule,
-  MdButtonModule,
-  MdListModule,
-  MdMenuModule,
-  MdGridListModule,
-  MdProgressSpinnerModule,
-  MdCardModule,
-  MdTabsModule,
-  MdInputModule,
-  MdSnackBarModule,
-  MdDialogModule } from '@angular/material';
+  MatSidenavModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatButtonModule,
+  MatListModule,
+  MatMenuModule,
+  MatGridListModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatTabsModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatDialogModule } from '@angular/material';
 
 // Directives
 import { BlinkDirective } from './directives/blink.directive';
 
 const materialModules = [
-  MdSidenavModule,
-  MdToolbarModule,
-  MdIconModule,
-  MdButtonModule,
-  MdListModule,
-  MdMenuModule,
-  MdProgressSpinnerModule,
-  MdCardModule,
-  MdTabsModule,
-  MdInputModule,
-  MdSnackBarModule,
-  MdDialogModule
+  MatSidenavModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatButtonModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatTabsModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatDialogModule
 ];
 
 @NgModule({

@@ -3,9 +3,9 @@
 
   <p>Select a type to get started</p>
 
-  <md-nav-list>
-    <a md-list-item [routerLink]="['/brew', brew.type]" *ngFor="let brew of brews">
+  <mat-nav-list>
+    <a mat-list-item [routerLink]="['/brew', brew.type]" *ngFor="let brew of brews">
       {{brew.type | uppercase}}
     </a>
-  </md-nav-list>
+  </mat-nav-list>
 </div>

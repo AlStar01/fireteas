@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 import { Brew } from '../../../shared/models/brew';
 import { DashboardService } from '../dashboard.service';
@@ -13,7 +12,7 @@ import { DashboardService } from '../dashboard.service';
 export class DashboardBrewsComponent implements OnInit {
   limitToLast = 10;
 
-  brews$: FirebaseListObservable<Brew[]>;
+  brews$: Observable<Brew[]>;
 
   constructor(private dashboardService: DashboardService) { }
 

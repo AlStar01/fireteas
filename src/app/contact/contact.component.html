@@ -4,40 +4,40 @@
 
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" autocomplete="false" novalidate>
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="2px" class="form-row">
-      <md-input-container>
-        <input mdInput formControlName="name" placeholder="Name">
-        <md-error *ngIf="hasError('name', 'required')">This field is required</md-error>
-        <md-error *ngIf="hasError('name', 'maxlength')">Maximum of 128 characters allowed</md-error>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="email" placeholder="Email">
-        <md-error *ngIf="hasError('email', 'required')">This field is required</md-error>
-        <md-error *ngIf="hasError('email', 'email')">Must be valid email address</md-error>
-      </md-input-container>
+      <mat-input-container>
+        <input matInput formControlName="name" placeholder="Name">
+        <mat-error *ngIf="hasError('name', 'required')">This field is required</mat-error>
+        <mat-error *ngIf="hasError('name', 'maxlength')">Maximum of 128 characters allowed</mat-error>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="hasError('email', 'required')">This field is required</mat-error>
+        <mat-error *ngIf="hasError('email', 'email')">Must be valid email address</mat-error>
+      </mat-input-container>
     </div>
 
     <br />
 
     <div fxLayout="column">
-      <md-input-container>
-        <input mdInput #subject formControlName="subject" placeholder="Subject">
-        <md-error *ngIf="hasError('subject', 'required')">This field is required</md-error>
-        <md-error *ngIf="hasError('subject', 'maxlength')">Maximum of 128 characters allowed</md-error>
-        <md-hint align="end">{{subject.value.length || 0}} / 128</md-hint>
-      </md-input-container>
+      <mat-input-container>
+        <input matInput #subject formControlName="subject" placeholder="Subject">
+        <mat-error *ngIf="hasError('subject', 'required')">This field is required</mat-error>
+        <mat-error *ngIf="hasError('subject', 'maxlength')">Maximum of 128 characters allowed</mat-error>
+        <mat-hint align="end">{{subject.value.length || 0}} / 128</mat-hint>
+      </mat-input-container>
       <br />
-      <md-input-container>
-        <textarea mdInput mdTextareaAutosize #message formControlName="message" placeholder="Message"></textarea>
-        <md-error *ngIf="hasError('message', 'required')">This field is required</md-error>
-        <md-error *ngIf="hasError('message', 'maxlength')">Maximum of 1000 characters allowed</md-error>
-        <md-hint align="end">{{message.value.length || 0}} / 1000</md-hint>
-      </md-input-container>
+      <mat-input-container>
+        <textarea matInput matTextareaAutosize #message formControlName="message" placeholder="Message"></textarea>
+        <mat-error *ngIf="hasError('message', 'required')">This field is required</mat-error>
+        <mat-error *ngIf="hasError('message', 'maxlength')">Maximum of 1000 characters allowed</mat-error>
+        <mat-hint align="end">{{message.value.length || 0}} / 1000</mat-hint>
+      </mat-input-container>
     </div>
 
     <br />
 
     <div>
-      <button type="submit" md-raised-button [disabled]="isDisabled()">Submit</button>
+      <button type="submit" mat-raised-button [disabled]="isDisabled()">Submit</button>
     </div>
   </form>
 </div>

@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { MdMenuModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material';
 
 import { AuthService } from './core/auth/auth.service';
 
@@ -12,7 +12,7 @@ const authServiceStub = { };
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MdMenuModule],
+      imports: [MatMenuModule],
       declarations: [AppComponent],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [

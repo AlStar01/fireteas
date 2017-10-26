@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -17,7 +17,7 @@ export class ContactService {
 
   constructor(
     private http: HttpClient,
-    private snackBar: MdSnackBar,
+    private snackBar: MatSnackBar,
     private analyticsService: AnalyticsService) { }
 
   sendContact(contact: Contact): Observable<any> {
@@ -26,7 +26,7 @@ export class ContactService {
   }
 
   openSnackBar(message: string): void {
-    const config: MdSnackBarConfig = { duration: 3000 };
+    const config: MatSnackBarConfig = { duration: 3000 };
 
     this.snackBar.open(message, null, config);
   }

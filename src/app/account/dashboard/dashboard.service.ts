@@ -4,9 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Observable as ObservableObject } from 'rxjs/Rx';
 
 import {
-  AngularFireDatabase,
-  FirebaseListObservable,
-  FirebaseObjectObservable } from 'angularfire2/database';
+  AngularFireDatabase } from 'angularfire2/database';
 import * as Firebase from 'firebase/app';
 
 import { AuthService } from '../../core/auth/auth.service';
@@ -39,24 +37,20 @@ export class DashboardService {
       );
   }
 
-  getBrews(limitToLast: number): FirebaseListObservable<Brew[]> {
+  getBrews(limitToLast: number): Observable<Brew[]> {
       return this.authService.getUser()
         .map(user => user.uid)
         .switchMap(uid =>
-          this.db.list(`/user-brews/${uid}`, {
-            query: {
-              limitToLast: 10
-            }
-          }))
-          .map((brews: Brew[]) => brews.sort((a, b) => b.completedDate - a.completedDate)) as FirebaseListObservable<Brew[]>;
+          this.db.list<Brew>(`/user-brews/${uid}`, ref => ref.orderByKey().limitToLast(10)).valueChanges())
+          .map((brews: Brew[]) => brews.sort((a, b) => b.completedDate - a.completedDate));
   }
 
   private getAuthUser(): Observable<Firebase.User> {
     return this.authService.getUser();
   }
 
-  private getDbUser = (user: Firebase.User): FirebaseObjectObservable<User> => {
-    return this.db.object(`/users/${user.uid}`);
+  private getDbUser = (user: Firebase.User): Observable<User> => {
+    return this.db.object<User>(`/users/${user.uid}`).valueChanges();
   }
 
   private getMergedUser = (authUser: Firebase.User, dbUser: User): User => ({ email: authUser.email, ...dbUser });

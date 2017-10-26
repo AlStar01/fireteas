@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-contact-dialog',
   template: `
-    <h2 md-dialog-title>Discard changes</h2>
+    <h2 mat-dialog-title>Discard changes</h2>
 
-    <md-dialog-content>Are you sure?</md-dialog-content>
+    <mat-dialog-content>Are you sure?</mat-dialog-content>
 
-    <md-dialog-actions>
-      <button md-button [md-dialog-close]="false">No</button>
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false">No</button>
       <!-- Can optionally provide a result for the closing dialog. -->
-      <button md-button [md-dialog-close]="true">Yes</button>
-    </md-dialog-actions>
+      <button mat-button [mat-dialog-close]="true">Yes</button>
+    </mat-dialog-actions>
   `
 })
 export class ContactDialogComponent {
 
-  constructor(private dialogRef: MdDialogRef<ContactDialogComponent>) {}
+  constructor(private dialogRef: MatDialogRef<ContactDialogComponent>) {}
 }

@@ -1,11 +1,11 @@
 <h2>Recent brews</h2>
 
-<md-list>
-    <md-list-item *ngFor="let brew of brews$ | async">
-        <img mdListAvatar [src]="brew.photoURL" [alt]="brew.type" />
-        <h3 mdLine>{{ brew.displayName }}</h3>
-        <p mdLine>
+<mat-list>
+    <mat-list-item *ngFor="let brew of brews$ | async">
+        <img matListAvatar [src]="brew.photoURL" [alt]="brew.type" />
+        <h3 matLine>{{ brew.displayName }}</h3>
+        <p matLine>
           <span>{{ brew.type | titlecase }} tea</span> - <span>{{ brew.completedDate | date:'short' }}</span>
         </p>
-    </md-list-item>
-</md-list>
+    </mat-list-item>
+</mat-list>

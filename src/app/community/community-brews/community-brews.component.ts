@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 import { CommunityService } from '../community.service';
 import { Brew } from '../../shared/models/brew';
@@ -11,7 +10,7 @@ import { Brew } from '../../shared/models/brew';
   styleUrls: ['./community-brews.component.css']
 })
 export class CommunityBrewsComponent implements OnInit {
-  brews$: FirebaseListObservable<Brew[]>;
+  brews$: Observable<Brew[]>;
 
   constructor(private communityService: CommunityService) { }
 
