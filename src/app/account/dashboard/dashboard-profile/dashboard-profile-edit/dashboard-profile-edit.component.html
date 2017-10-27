@@ -1,25 +1,25 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div fxLayout="column">
-    <md-input-container>
-      <input mdInput #displayName formControlName="displayName" placeholder="Display name">
-      <md-error>Maximum length of 64 characters exceeded</md-error>
-      <md-hint align="end">{{displayName.value.length}} / 64</md-hint>
-    </md-input-container>
-    <md-input-container>
-        <input mdInput  formControlName="email" placeholder="Email">
-        <md-error>Must be a valid email address</md-error>
-    </md-input-container>
-    <md-input-container>
-      <textarea mdInput mdTextareaAutosize #story formControlName="story" placeholder="Your story"></textarea>
-      <md-error>Maximum length of 100 characters exceeded</md-error>
-      <md-hint align="end">{{story.value.length}} / 1000</md-hint>
-    </md-input-container>
+    <mat-input-container>
+      <input matInput #displayName formControlName="displayName" placeholder="Display name">
+      <mat-error>Maximum length of 64 characters exceeded</mat-error>
+      <mat-hint align="end">{{displayName.value.length}} / 64</mat-hint>
+    </mat-input-container>
+    <mat-input-container>
+        <input matInput  formControlName="email" placeholder="Email">
+        <mat-error>Must be a valid email address</mat-error>
+    </mat-input-container>
+    <mat-input-container>
+      <textarea matInput matTextareaAutosize #story formControlName="story" placeholder="Your story"></textarea>
+      <mat-error>Maximum length of 100 characters exceeded</mat-error>
+      <mat-hint align="end">{{story.value.length}} / 1000</mat-hint>
+    </mat-input-container>
 
     <br />
 
     <div>
-      <a md-raised-button [routerLink]="['../']">Cancel</a>
-      <button type="submit" md-raised-button color="primary" [disabled]="isDisabled()">Save</button>
+      <a mat-raised-button [routerLink]="['../']">Cancel</a>
+      <button type="submit" mat-raised-button color="primary" [disabled]="isDisabled()">Save</button>
     </div>
   </div>
 </form>
