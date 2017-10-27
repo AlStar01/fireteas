@@ -8,6 +8,7 @@ import { Link } from '../shared/models/link';
 })
 export class CommunityComponent {
   navLinks: Link[] = [
-    { path: ['brews'], label: 'Brews' }
+    { path: ['brews'], label: 'Brews' },
+    { path: ['teas'], label: 'Teas' }
   ];
 }
