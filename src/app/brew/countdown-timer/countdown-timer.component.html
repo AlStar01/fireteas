@@ -3,10 +3,11 @@
         <div class="countdown-timer__duration" [appBlink]="isEnding()">{{getDisplayTime(seconds)}}</div>
         <mat-progress-spinner
             class="countdown-timer__spinner"
+            [diameter]="225"
             [color]="getSpinnerColor()"
             [mode]="'determinate'"
             [value]="getSpinnerValue()"
-            [strokeWidth]="2"></mat-progress-spinner>
+            [strokeWidth]="5"></mat-progress-spinner>
     </div>
 
     <div class="countdown-timer__actions">
