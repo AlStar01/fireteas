@@ -1,15 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-community-teas',
-  templateUrl: './community-teas.component.html',
-  styleUrls: ['./community-teas.component.css']
+  template: '<router-outlet></router-outlet>'
 })
-export class CommunityTeasComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class CommunityTeasComponent {}

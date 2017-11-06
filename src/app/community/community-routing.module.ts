@@ -6,6 +6,8 @@ import { AuthGuard } from '../core/auth/auth-guard.service';
 import { CommunityComponent } from './community.component';
 import { CommunityBrewsComponent } from './community-brews/community-brews.component';
 import { CommunityTeasComponent } from './community-teas/community-teas.component';
+import { CommunityTeaListComponent } from './community-teas/community-tea-list/community-tea-list.component';
+import { CommunityTeaDetailComponent } from './community-teas/community-tea-detail/community-tea-detail.component';
 
 const communityRoutes: Routes = [
   {
@@ -17,8 +19,15 @@ const communityRoutes: Routes = [
         path: '',
         canActivateChild: [AuthGuard],
         children: [
+          {
+            path: 'teas',
+            component: CommunityTeasComponent ,
+            children: [
+              { path: '', component: CommunityTeaListComponent },
+              { path: ':id', component: CommunityTeaDetailComponent }
+            ]
+          },
           { path: 'brews', component: CommunityBrewsComponent },
-          { path: 'teas', component: CommunityTeasComponent },
           { path: '', redirectTo: 'brews', pathMatch: 'full' }
         ]
       }
